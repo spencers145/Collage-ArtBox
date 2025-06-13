@@ -22,11 +22,15 @@ SMODS.Consumable ({
     end,
 
     use = function(self, card, area)
+      local types = {}
+      for _, v in pairs(SMODS.ConsumableTypes) do
+      types[#types + 1] = v
+      end
      G.E_MANAGER:add_event(Event({
               trigger = 'before',
               func = function()
                 SMODS.add_card {
-                  set = PB_UTIL.poll_consumable_type('Swatch').key,
+                  set = pseudorandom_element(types, pseudoseed('Swatch')).key,
                   area = G.consumables,
                   edition = 'e_negative',
                   soulable = true,
