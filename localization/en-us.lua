@@ -12,6 +12,7 @@ return {
         labels = {
             artb_ouroboros_seal = "Ouroboros Seal",
             artb_brick_seal = "Brick Seal",
+            artb_button_seal = "Button Seal",
         },
     },
     descriptions = {
@@ -190,6 +191,15 @@ return {
                 }
             },
 
+             c_artb_art_thread = {
+                name = 'Thread',
+                text = {
+                    'Add a Button Seal',
+                    'to {C:attention}1{} selected',
+                    'card in your hand'
+                }
+            },
+
              c_artb_art_swatch = {
                 name = 'Swatch',
                 text = {
@@ -244,6 +254,15 @@ return {
                     'This card gets',
                     '{C:mult}+1{} extra Mult',
                     'when scored'
+                }
+            },
+
+            artb_button_seal = {
+                name = 'Button Seal',
+                text = {
+                    'when scored, random card',
+                    'in hand {C:attention}suit{} changes',
+                    'to this cards {C:attention}suit{} '
                 }
             },
 
