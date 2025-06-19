@@ -29,7 +29,7 @@ return {
             j_artb_halftone = {
                 name = 'Halftone',
                 text = {
-                    "Retrigger all played cards",
+                    "Retrigger all scored cards",
                     "if played hand",
 			        "contains a {C:attention}Straight{}",
                 }
@@ -90,6 +90,25 @@ return {
                     "{C:attention}Lucky Cards{} give",
                     "{C:money}$#1#{} when they do not",
                     "trigger their ability",
+                }
+            },
+
+            j_artb_transparent_joker = {
+                name = '"Transparent" Joker',
+                text = {
+                    "Scored cards give",
+                    "{C:mult}+#1#{} Mult for every",
+                    "{C:attention}unscored card{}",
+                    "in played hand"
+                }
+            },
+
+            j_artb_minimalism = {
+                name = 'Minimalism',
+                text = {
+                    "Retrigger all scored cards",
+                    "if played hand has 3",
+			        "or less scored cards",
                 }
             },
         },
@@ -260,9 +279,9 @@ return {
             artb_button_seal = {
                 name = 'Button Seal',
                 text = {
-                    'when scored, random card',
-                    'in hand {C:attention}suit{} changes',
-                    'to this cards {C:attention}suit{} '
+                    'when scored, {C:attention}suit{}',
+                    'of a random card in hand',
+                    'changes to this cards {C:attention}suit{}'
                 }
             },
 

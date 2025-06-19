@@ -36,6 +36,7 @@ SMODS.Consumable({
       end
     }))
     if next(SMODS.find_card('c_artb_limited_edition_collectable', count_debuffed))  then
+      card.ability.extra.original=false
       G.E_MANAGER:add_event(Event({
       func = function()
         play_sound('coin1')
