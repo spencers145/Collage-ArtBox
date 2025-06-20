@@ -25,10 +25,12 @@ SMODS.Seal {
             if v.base.suit~=card.base.suit then cards[#cards + 1] = v end
             end
             local _card = pseudorandom_element(cards, pseudoseed('button'))
-            G.E_MANAGER:add_event(Event({trigger = 'after', delay = 0.1, func = function()
+            if _card~=nil then
+              G.E_MANAGER:add_event(Event({trigger = 'after', delay = 0.1, func = function()
                 SMODS.change_base(_card, card.base.suit,nil)
                 _card:juice_up(0.3, 0.5)
-            return true end }))
+              return true end }))
+            end
           
         end
       end
