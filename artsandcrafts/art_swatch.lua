@@ -24,7 +24,9 @@ SMODS.Consumable ({
     use = function(self, card, area)
       local types = {}
       for _, v in pairs(SMODS.ConsumableTypes) do
-      types[#types + 1] = v
+        if v.key~="collectable" and v.key~="Cine" then
+           types[#types + 1] = v
+        end
       end
      G.E_MANAGER:add_event(Event({
               trigger = 'before',

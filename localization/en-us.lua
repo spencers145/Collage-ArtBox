@@ -45,7 +45,7 @@ return {
             },
 
             j_artb_bat = {
-                name = 'Bat',
+                name = 'Baseball Bat',
                 text = {
                     "Each {C:attention}round{} first time",
                     "you play a {C:attention}hand{} that",
@@ -55,7 +55,7 @@ return {
             },
 
             j_artb_rubberhose = {
-                name = 'Rubber hose',
+                name = 'Rubber Hose',
                 text = {
                     "Played cards with",
                     "{C:clubs}Club{} suit give",
@@ -66,7 +66,7 @@ return {
             },
 
             j_artb_clawmachine = {
-                name = 'Claw machine',
+                name = 'Claw Machine',
                 text = {
                     "When {C:attention}Blind{} is selected,",
                     "{C:green}#1# in #2#{} chance",
@@ -226,6 +226,15 @@ return {
                     '{C:dark_edition}Negative{} {C:attention}Consumable{}',
                 }
             },
+
+             c_artb_art_carving = {
+                name = 'Carving',
+                text = {
+                    "Enchances {C:attention}#1#{}",
+                    "selected card to",
+                    "{C:attention}Wood Card{}",
+                }
+            },
         },
          Spectral = {
             c_artb_infinity = {
@@ -238,14 +247,14 @@ return {
             },
         },
         Enhanced = {
-            m_artb_pinata = {
-        name = 'Pinata Card',
-        text = {
-          'When this card is {C:attention}destroyed{},',
-          'gain {C:money}$#1#{}',
-          'and a random {C:attention}tag{}'
-        }
-      },
+           m_artb_pinata = {
+           name = 'Pinata Card',
+           text = {
+            'When this card is {C:attention}destroyed{},',
+            'gain {C:money}$#1#{}',
+            'and a random {C:attention}tag{}'
+            }
+          },
          m_artb_stained = {
         name = 'Stained Card',
         text = {
@@ -255,8 +264,17 @@ return {
           "to create an {C:attention}Art card{},",
           "{C:green}#1# in #3#{} chance",
           "to create a {C:attention}Creative tag{}",
-        }
-      },
+          }
+        },
+        m_artb_wood = {
+           name = 'Wood Card',
+           text = {
+            "when this card",
+            "is held in hand",
+            "scored cards gain",
+            "permanent {C:chips}+#1#{} chip"
+            }
+        },
       },
         Other = {
             artb_ouroboros_seal = {

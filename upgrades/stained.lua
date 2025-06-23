@@ -8,7 +8,7 @@ SMODS.Enhancement({
     replace_base_card = true,
     config = {
     extra = {
-      odds = 2,
+      odds = 3,
       super_odds = 10
     }
   },
