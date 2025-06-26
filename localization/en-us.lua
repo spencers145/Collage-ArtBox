@@ -8,6 +8,7 @@ return {
             artb_arts_crafts_pack = "Arts & Crafts Pack",
             artb_plus_art = "+1 Art",
             artb_plus_tag = "+1 Tag",
+            artb_wood="wood!",
         },
         labels = {
             artb_ouroboros_seal = "Ouroboros Seal",
@@ -135,8 +136,7 @@ return {
                     "and {C:attention}+1 consumable slot{}"
                 }
             },
-
-            c_artb_mod_collectable = {
+               c_artb_mod_collectable = {
                 name = 'Modifier Collectable',
                 text = {
                     "Applies {C:attention}#1#{} to",
@@ -144,11 +144,11 @@ return {
                 }
             },
 
-            c_artb_mod_collectable_empty = {
+             c_artb_mod_collectable_empty = {
                 name = 'Modifier Collectable',
                 text = {
-                    "This {C:attention}Collectable{} inherits",
-                    "different properties during a run",
+                    "Applies {C:attention}???{} to",
+                    "{C:attention}1{} selected card",
                 }
             },
         },
@@ -249,6 +249,16 @@ return {
                     "Enchances {C:attention}#1#{}",
                     "selected card to",
                     "{C:attention}Wood Card{}",
+                }
+            },
+
+            c_artb_art_scissors = {
+                name = 'Scissors',
+                text = {
+                    'Select a card,',
+                    'destroy it and',
+                    'get a collectable of its',
+                    '{C:attention}enhancement{}, {C:attention}seal{} and {C:attention}edition{}',
                 }
             },
         },

@@ -101,6 +101,7 @@ ArtBox.Collectables = {
     ['m_gold'] = {enhancement = 'm_gold', atlas = 'artb_collectable_atlas', pos = {x = 0, y = 2}, soul_pos = {x = 0, y = 3}},
     ['m_glass'] = {enhancement = 'm_glass', atlas = 'artb_collectable_atlas', pos = {x = 1, y = 2}, soul_pos = {x = 1, y = 3}},
     ['m_wild'] = {enhancement = 'm_wild', atlas = 'artb_collectable_atlas', pos = {x = 2, y = 2}, soul_pos = {x = 2, y = 3}},
+    ['m_artb_pinata'] = {enhancement = 'm_artb_pinata', atlas = 'artb_collectable_atlas', pos = {x = 4, y = 2}, soul_pos = {x = 4, y = 3}},
     ['e_polychrome'] = {edition = 'e_polychrome', shader = 'polychrome', atlas = 'artb_collectable_atlas', pos = {x = 3, y = 2}, soul_pos = {x = 3, y = 3}},
 }
 

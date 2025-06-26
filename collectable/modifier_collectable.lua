@@ -2,15 +2,15 @@ SMODS.Consumable({
   key = 'mod_collectable',
   set = 'collectable',
   atlas = 'collectable_atlas',
-  pos = { x = 2, y = 0 },
-  soul_pos = { x = 2, y = 1 },
+  pos = { x = 5, y = 2 },
+  soul_pos = { x = 5, y = 3 },
   discovered = true,
   config = {
     extra = {
 
     }
   },
-  cost = 8,
+  cost = 1,
   can_use = function(self, card)
     return #G.hand.highlighted == 1
   end,
