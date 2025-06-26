@@ -135,6 +135,22 @@ return {
                     "and {C:attention}+1 consumable slot{}"
                 }
             },
+
+            c_artb_mod_collectable = {
+                name = 'Modifier Collectable',
+                text = {
+                    "Applies {C:attention}#1#{} to",
+                    "{C:attention}1{} selected card",
+                }
+            },
+
+            c_artb_mod_collectable_empty = {
+                name = 'Modifier Collectable',
+                text = {
+                    "This {C:attention}Collectable{} inherits",
+                    "different properties during a run",
+                }
+            },
         },
         Tag = {
             tag_artb_creative = {
