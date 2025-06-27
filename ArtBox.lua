@@ -8,59 +8,59 @@ SMODS.Atlas {
 }
 
 SMODS.Atlas {
-	key = "joker_atlas",
-	path = "jokers.png",
-	px = 71,
-	py = 95
+    key = "joker_atlas",
+    path = "jokers.png",
+    px = 71,
+    py = 95
 }
 
 SMODS.Atlas {
-	key = "collectable_atlas",
-	path = "collectable.png",
-	px = 71,
-	py = 95
+    key = "collectable_atlas",
+    path = "collectable.png",
+    px = 71,
+    py = 95
 }
 
 SMODS.Atlas {
-	key = "spectral_atlas",
-	path = "spectrals.png",
-	px = 71,
-	py = 95
+    key = "spectral_atlas",
+    path = "spectrals.png",
+    px = 71,
+    py = 95
 }
 
 SMODS.Atlas {
-	key = "seal_atlas",
-	path = "seals.png",
-	px = 71,
-	py = 95
+    key = "seal_atlas",
+    path = "seals.png",
+    px = 71,
+    py = 95
 }
 
 SMODS.Atlas {
-	key = "enhancers_atlas",
-	path = "enhancers.png",
-	px = 71,
-	py = 95
+    key = "enhancers_atlas",
+    path = "enhancers.png",
+    px = 71,
+    py = 95
 }
 
 SMODS.Atlas {
-	key = "boosters_atlas",
-	path = "boosters.png",
-	px = 71,
-	py = 95
+    key = "boosters_atlas",
+    path = "boosters.png",
+    px = 71,
+    py = 95
 }
 
 SMODS.Atlas {
-	key = "arts_atlas",
-	path = "artsandcrafts.png",
-	px = 71,
-	py = 95
+    key = "arts_atlas",
+    path = "artsandcrafts.png",
+    px = 71,
+    py = 95
 }
 
 SMODS.Atlas {
-	key = "tags_atlas",
-	path = "tags.png",
-	px = 34,
-	py = 34
+    key = "tags_atlas",
+    path = "tags.png",
+    px = 34,
+    py = 34
 }
 
 
@@ -81,94 +81,70 @@ SMODS.ConsumableType({
         collection = "Collectables",
         undiscovered = {
             name = 'Unknown Collectable',
-            text = {'Find this card in an unseeded', 'run to find out what it does'}
+            text = { 'Find this card in an unseeded', 'run to find out what it does' }
         }
     },
-    collection_rows = {4, 4, 4},
+    collection_rows = { 4, 4, 4 },
     shop_rate = 0,
     default = 'c_artb_joker_collectable'
 })
 
 ArtBox.Collectables = {
-    ['Red'] = {seal = 'Red', atlas = 'artb_collectable_atlas', pos = {x = 0, y = 0}, soul_pos = {x = 0, y = 1}},
-    ['m_bonus'] = {enhancement = 'm_bonus', atlas = 'artb_collectable_atlas', pos = {x = 1, y = 0}, soul_pos = {x = 1, y = 1}},
-    ['m_mult'] = {enhancement = 'm_mult', atlas = 'artb_collectable_atlas', pos = {x = 4, y = 0}, soul_pos = {x = 4, y = 1}},
-    ['Blue'] = {seal = 'Blue', atlas = 'artb_collectable_atlas', pos = {x = 5, y = 0}, soul_pos = {x = 5, y = 1}},
-    ['m_stone'] = {enhancement = 'm_stone', atlas = 'artb_collectable_atlas', pos = {x = 6, y = 0}, soul_pos = {x = 6, y = 1}},
-    ['artb_brick'] = {seal = 'artb_brick', atlas = 'artb_collectable_atlas', pos = {x = 7, y = 0}, soul_pos = {x = 7, y = 1}},
-    ['m_lucky'] = {enhancement = 'm_lucky', atlas = 'artb_collectable_atlas', pos = {x = 8, y = 0}, soul_pos = {x = 8, y = 1}},
-    ['m_steel'] = {enhancement = 'm_steel', atlas = 'artb_collectable_atlas', pos = {x = 9, y = 0}, soul_pos = {x = 9, y = 1}},
-    ['m_gold'] = {enhancement = 'm_gold', atlas = 'artb_collectable_atlas', pos = {x = 0, y = 2}, soul_pos = {x = 0, y = 3}},
-    ['m_glass'] = {enhancement = 'm_glass', atlas = 'artb_collectable_atlas', pos = {x = 1, y = 2}, soul_pos = {x = 1, y = 3}},
-    ['m_wild'] = {enhancement = 'm_wild', atlas = 'artb_collectable_atlas', pos = {x = 2, y = 2}, soul_pos = {x = 2, y = 3}},
-    ['m_artb_pinata'] = {enhancement = 'm_artb_pinata', atlas = 'artb_collectable_atlas', pos = {x = 4, y = 2}, soul_pos = {x = 4, y = 3}},
-    ['e_polychrome'] = {edition = 'e_polychrome', shader = 'polychrome', atlas = 'artb_collectable_atlas', pos = {x = 3, y = 2}, soul_pos = {x = 3, y = 3}},
+    --Seals
+    ['Red'] = { atlas = 'artb_collectable_atlas', pos = { x = 0, y = 0 }, soul_pos = { x = 0, y = 1 } },
+    ['Blue'] = { atlas = 'artb_collectable_atlas', pos = { x = 5, y = 0 }, soul_pos = { x = 5, y = 1 } },
+    ['artb_brick'] = { atlas = 'artb_collectable_atlas', pos = { x = 7, y = 0 }, soul_pos = { x = 7, y = 1 } },
+
+    --Enhancements
+    ['m_bonus'] = { atlas = 'artb_collectable_atlas', pos = { x = 1, y = 0 }, soul_pos = { x = 1, y = 1 } },
+    ['m_mult'] = { atlas = 'artb_collectable_atlas', pos = { x = 4, y = 0 }, soul_pos = { x = 4, y = 1 } },
+    ['m_stone'] = { atlas = 'artb_collectable_atlas', pos = { x = 6, y = 0 }, soul_pos = { x = 6, y = 1 } },
+    ['m_lucky'] = { atlas = 'artb_collectable_atlas', pos = { x = 8, y = 0 }, soul_pos = { x = 8, y = 1 } },
+    ['m_steel'] = { atlas = 'artb_collectable_atlas', pos = { x = 9, y = 0 }, soul_pos = { x = 9, y = 1 } },
+    ['m_gold'] = { atlas = 'artb_collectable_atlas', pos = { x = 0, y = 2 }, soul_pos = { x = 0, y = 3 } },
+    ['m_glass'] = { atlas = 'artb_collectable_atlas', pos = { x = 1, y = 2 }, soul_pos = { x = 1, y = 3 } },
+    ['m_wild'] = { atlas = 'artb_collectable_atlas', pos = { x = 2, y = 2 }, soul_pos = { x = 2, y = 3 } },
+    ['m_artb_pinata'] = { atlas = 'artb_collectable_atlas', pos = { x = 4, y = 2 }, soul_pos = { x = 4, y = 3 } },
+
+    --Editions
+    ['e_polychrome'] = { atlas = 'artb_collectable_atlas', pos = { x = 3, y = 2 }, soul_pos = { x = 3, y = 3 }, shader = 'polychrome', },
 }
 
-function ArtBox.add_collectible(args)
-    if args.seal then
-        ArtBox.Collectables[args.seal] = args
-    elseif args.enhancement then
-        ArtBox.Collectables[args.enhancement] = args
-    elseif args.edition then
-        ArtBox.Collectables[args.edition] = args
+function ArtBox.add_collectible(key, args)
+    if G.P_SEALS[key] or G.P_CENTERS[key] then
+        ArtBox.Collectables[key] = args
     else
         printTraceMessage('A Collectable type could not properly be loaded', 'ArtBox')
     end
 end
 
-function ArtBox.create_enhancement_collectable(enhancement)
-    local collectable = SMODS.add_card({key = 'c_artb_mod_collectable'})
+function ArtBox.create_collectable(key)
+    local collectable = SMODS.add_card({ key = 'c_artb_mod_collectable' })
 
-    if ArtBox.Collectables[enhancement] then
-        collectable.children.center.atlas = G.ASSET_ATLAS[ArtBox.Collectables[enhancement].atlas]
-        collectable.children.center.floating_sprite = G.ASSET_ATLAS[ArtBox.Collectables[enhancement].atlas]
-
-        collectable.children.center:set_sprite_pos(ArtBox.Collectables[enhancement].pos)
-        collectable.children.floating_sprite:set_sprite_pos(ArtBox.Collectables[enhancement].soul_pos)
-
-        collectable.ability.extra.enhancement = ArtBox.Collectables[enhancement].enhancement
-        collectable.ability.extra.shader = ArtBox.Collectables[enhancement].shader
-        
-    else
-        collectable.ability.extra.enhancement = enhancement
+    if G.P_SEALS[key] then
+        collectable.ability.extra.seal = key
     end
-end
 
-function ArtBox.create_edition_collectable(edition)
-    local collectable = SMODS.add_card({key = 'c_artb_mod_collectable'})
-
-    if ArtBox.Collectables[edition] then
-        collectable.children.center.atlas = G.ASSET_ATLAS[ArtBox.Collectables[edition].atlas]
-        collectable.children.center.floating_sprite = G.ASSET_ATLAS[ArtBox.Collectables[edition].atlas]
-
-        collectable.children.center:set_sprite_pos(ArtBox.Collectables[edition].pos)
-        collectable.children.floating_sprite:set_sprite_pos(ArtBox.Collectables[edition].soul_pos)
-
-        collectable.ability.extra.edition = ArtBox.Collectables[edition].edition
-        collectable.ability.extra.shader = ArtBox.Collectables[edition].shader
-        
-    else
-        collectable.ability.extra.edition = edition
+    if G.P_CENTERS[key] then
+        if key:sub(1, 2) == 'm_' then
+            collectable.ability.extra.enhancement = key
+        elseif key:sub(1, 2) == 'e_' then
+            collectable.ability.extra.edition = key
+        end
     end
-end
 
-function ArtBox.create_seal_collectable(seal)
-    local collectable = SMODS.add_card({key = 'c_artb_mod_collectable'})
+    local ref_values = ArtBox.Collectables[key]
+    if ref_values then
+        collectable.children.center.atlas = G.ASSET_ATLAS[ref_values.atlas]
+        collectable.children.center.floating_sprite = G.ASSET_ATLAS[ref_values.atlas]
 
-    if ArtBox.Collectables[seal] then
-        collectable.children.center.atlas = G.ASSET_ATLAS[ArtBox.Collectables[seal].atlas]
-        collectable.children.center.floating_sprite = G.ASSET_ATLAS[ArtBox.Collectables[seal].atlas]
+        collectable.children.center:set_sprite_pos(ref_values.pos)
+        collectable.children.floating_sprite:set_sprite_pos(ref_values.soul_pos)
 
-        collectable.children.center:set_sprite_pos(ArtBox.Collectables[seal].pos)
-        collectable.children.floating_sprite:set_sprite_pos(ArtBox.Collectables[seal].soul_pos)
-
-        collectable.ability.extra.seal = ArtBox.Collectables[seal].seal
-        collectable.ability.extra.shader = ArtBox.Collectables[seal].shader
-        
-    else
-        collectable.ability.extra.seal = seal
+        collectable.ability.extra.shader = ref_values.shader
     end
+
+    return collectable
 end
 
 --#endregion
@@ -182,10 +158,10 @@ SMODS.ConsumableType({
         collection = "Art Cards",
         undiscovered = {
             name = 'Unknown Art Card',
-            text = {'Find this card in an unseeded', 'run to find out what it does'}
+            text = { 'Find this card in an unseeded', 'run to find out what it does' }
         }
     },
-    collection_rows = {4, 4, 4},
+    collection_rows = { 4, 4, 4 },
     shop_rate = 0,
     default = 'c_artb_art_paper'
 })
