@@ -108,6 +108,8 @@ ArtBox.Collectables = {
 
     --Editions
     ['e_polychrome'] = { atlas = 'artb_collectable_atlas', pos = { x = 3, y = 2 }, soul_pos = { x = 3, y = 3 }, shader = 'polychrome', },
+    ['e_foil'] = { atlas = 'artb_collectable_atlas', pos = { x = 6, y = 2 }, soul_pos = { x = 3, y = 3 }, shader = 'foil', },
+    ['e_holo'] = { atlas = 'artb_collectable_atlas', pos = { x = 7, y = 2 }, soul_pos = { x = 7, y = 3 }, shader = 'holo', },
 }
 
 function ArtBox.add_collectible(key, args)
