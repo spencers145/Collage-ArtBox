@@ -93,7 +93,7 @@ ArtBox.Collectables = {
     --Seals
     ['Red'] = { atlas = 'artb_collectable_atlas', pos = { x = 0, y = 0 }, soul_pos = { x = 0, y = 1 } },
     ['Blue'] = { atlas = 'artb_collectable_atlas', pos = { x = 5, y = 0 }, soul_pos = { x = 5, y = 1 } },
-    ['Gold'] = { atlas = 'artb_collectable_atlas', pos = { x = 2, y = 4 }, soul_pos = { x = 2, y = 5 } },
+    ['Gold'] = { atlas = 'artb_collectable_atlas', pos = { x = 2, y = 4 }, soul_pos = { x = 2, y = 5 }, shader = 'voucher' },
     ['Purple'] = { atlas = 'artb_collectable_atlas', pos = { x = 3, y = 4 }, soul_pos = { x = 3, y = 5 } },
     ['artb_brick'] = { atlas = 'artb_collectable_atlas', pos = { x = 7, y = 0 }, soul_pos = { x = 7, y = 1 } },
     ['artb_button'] = { atlas = 'artb_collectable_atlas', pos = { x = 0, y = 4 }, soul_pos = { x = 0, y = 5 } },
