@@ -116,14 +116,14 @@ ArtBox.Collectables = {
     ['e_polychrome'] = { atlas = 'artb_collectable_atlas', pos = { x = 3, y = 2 }, soul_pos = { x = 3, y = 3 }, shader = 'polychrome', },
     ['e_foil'] = { atlas = 'artb_collectable_atlas', pos = { x = 6, y = 2 }, soul_pos = { x = 3, y = 3 }, shader = 'foil', },
     ['e_holo'] = { atlas = 'artb_collectable_atlas', pos = { x = 7, y = 2 }, soul_pos = { x = 7, y = 3 }, shader = 'holo', },
-    ['e_negative'] = { atlas = 'artb_collectable_atlas', pos = { x = 4, y = 4 }, soul_pos = { x = 4, y = 5 }, shader = 'negative_shine', },
+    ['e_negative'] = { atlas = 'artb_collectable_atlas', pos = { x = 4, y = 4 }, soul_pos = { x = 7, y = 3 }, shader = 'negative', },
 }
 
 function ArtBox.add_collectible(key, args)
     if G.P_SEALS[key] or G.P_CENTERS[key] then
         ArtBox.Collectables[key] = args
     else
-        printTraceMessage('A Collectable type could not properly be loaded', 'ArtBox')
+        sendWarnMessage('A Collectable type '..key..' could not properly be loaded', 'ArtBox')
     end
 end
 
