@@ -122,10 +122,12 @@ ArtBox.Collectables = {
 function ArtBox.add_collectible(key, args)
     if G.P_SEALS[key] or G.P_CENTERS[key] then
         ArtBox.Collectables[key] = args
+        sendDebugMessage('A Collectable type ' .. key .. ' has been be loaded', 'ArtBox')
     else
-        sendWarnMessage('A Collectable type '..key..' could not properly be loaded', 'ArtBox')
+        sendWarnMessage('A Collectable type ' .. key .. ' could not properly be loaded', 'ArtBox')
     end
 end
+    
 
 function ArtBox.create_collectable(key)
     local collectable = SMODS.add_card({ key = 'c_artb_mod_collectable' })
@@ -145,10 +147,12 @@ function ArtBox.create_collectable(key)
     local ref_values = ArtBox.Collectables[key]
     if ref_values then
         collectable.children.center.atlas = G.ASSET_ATLAS[ref_values.atlas]
-        collectable.children.center.floating_sprite = G.ASSET_ATLAS[ref_values.atlas]
-
         collectable.children.center:set_sprite_pos(ref_values.pos)
-        collectable.children.floating_sprite:set_sprite_pos(ref_values.soul_pos)
+
+        collectable.children.floating_sprite = Sprite(collectable.T.x, collectable.T.y, collectable.T.w, collectable.T.h, G.ASSET_ATLAS[ref_values.atlas], ref_values.soul_pos)
+        collectable.children.floating_sprite.role.draw_major = collectable
+        collectable.children.floating_sprite.states.hover.can = false
+        collectable.children.floating_sprite.states.click.can = false
 
         collectable.ability.extra.shader = ref_values.shader
     end
