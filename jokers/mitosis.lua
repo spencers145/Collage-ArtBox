@@ -2,7 +2,7 @@ SMODS.Joker {
     key = "mitosis",
     config = {
       extra = {
-        mult=2,
+        mult=4,
       }
     },
     rarity = 2,
@@ -25,7 +25,7 @@ SMODS.Joker {
     
     calculate = function(self, card, context)
 
-        if context.setting_blind and #G.jokers.cards + G.GAME.joker_buffer < G.jokers.config.card_limit then
+        if context.setting_blind and #G.jokers.cards + G.GAME.joker_buffer < G.jokers.config.card_limit and not context.blueprint then
             local jokers_to_create = math.min(1, G.jokers.config.card_limit - (#G.jokers.cards + G.GAME.joker_buffer))
                 G.GAME.joker_buffer = G.GAME.joker_buffer + jokers_to_create
                 G.E_MANAGER:add_event(Event({
@@ -41,7 +41,7 @@ SMODS.Joker {
                     end}))
         end 
 
-        if context.joker_main then
+        if context.joker_main and not context.blueprint then
             return {
               mult = card.ability.extra.mult,
             }

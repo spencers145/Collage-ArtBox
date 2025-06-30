@@ -112,6 +112,25 @@ return {
 			        "or less scored cards",
                 }
             },
+
+            j_artb_wooden_joker = {
+                name = 'Wooden Joker',
+                text = {
+                    "Retrigger last card",
+                    "held in hand {C:attention}#1#{} times",
+                }
+            },
+
+            j_artb_random = {
+                name = 'Random',
+                text = {
+                    "When {C:attention}Blind{} is selected,",
+                    "transform all {C:attention}Jokers{}",
+                    "to the right,",
+                    "into random ones",
+                    "of the same rarity"
+                }
+            },
         },
         collectable = {
             c_artb_joker_collectable = {
