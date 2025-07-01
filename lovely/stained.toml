@@ -1,0 +1,83 @@
+[manifest]
+version = "1.0.0"
+dump_lua = true
+priority = 1
+
+# Add stained card draw arguments to front drawsteps
+[[patches]]
+[patches.pattern]
+target = '''=[SMODS _ "src/card_draw.lua"]'''
+pattern = '''
+if self.children.front and (self.ability.delayed or (self.ability.effect ~= 'Stone Card' and not self.config.center.replace_base_card)) then
+    self.children.front:draw_shader('negative', nil, self.ARGS.send_to_shader)
+'''
+position = "after"
+payload = '''
+elseif self.children.front and SMODS.has_enhancement(self, 'm_artb_stained') then
+    self.children.front:draw_shader('negative', nil, self.ARGS.send_to_shader)
+'''
+match_indent = true
+times = 1
+
+[[patches]]
+[patches.pattern]
+target = '''=[SMODS _ "src/card_draw.lua"]'''
+pattern = '''
+if self.children.front and (self.ability.delayed or (self.ability.effect ~= 'Stone Card' and not self.config.center.replace_base_card)) then
+    self.children.front:draw_shader('dissolve')
+'''
+position = "after"
+payload = '''
+elseif self.children.front and SMODS.has_enhancement(self, 'm_artb_stained') then
+    self.children.front:draw_shader('dissolve')
+'''
+match_indent = true
+times = 1
+
+# Add stained card draw arguments to edition drawsteps
+[[patches]]
+[patches.pattern]
+target = '''=[SMODS _ "src/card_draw.lua"]'''
+pattern = '''
+if self.children.front and self.ability.effect ~= 'Stone Card' and not self.config.center.replace_base_card then
+    self.children.front:draw_shader(v.shader, nil, self.ARGS.send_to_shader)
+'''
+position = "after"
+payload = '''
+elseif self.children.front and SMODS.has_enhancement(self, 'm_artb_stained') then
+    self.children.front:draw_shader(v.shader, nil, self.ARGS.send_to_shader)
+'''
+match_indent = true
+times = 1
+
+# Add stained card draw arguments to debuff drawsteps
+[[patches]]
+[patches.pattern]
+target = '''=[SMODS _ "src/card_draw.lua"]'''
+pattern = '''
+if self.children.front and (self.ability.delayed or (self.ability.effect ~= 'Stone Card' and not self.config.center.replace_base_card)) then
+    self.children.front:draw_shader('debuff', nil, self.ARGS.send_to_shader)
+'''
+position = "after"
+payload = '''
+elseif self.children.front and SMODS.has_enhancement(self, 'm_artb_stained') then
+    self.children.front:draw_shader('debuff', nil, self.ARGS.send_to_shader)
+'''
+match_indent = true
+times = 1
+
+# Add stained card draw arguments to greyed drawsteps
+[[patches]]
+[patches.pattern]
+target = '''=[SMODS _ "src/card_draw.lua"]'''
+pattern = '''
+if self.children.front and (self.ability.delayed or (self.ability.effect ~= 'Stone Card' and not self.config.center.replace_base_card)) then
+    self.children.front:draw_shader('played', nil, self.ARGS.send_to_shader)
+'''
+position = "after"
+payload = '''
+elseif self.children.front and SMODS.has_enhancement(self, 'm_artb_stained') then
+    self.children.front:draw_shader('played', nil, self.ARGS.send_to_shader)
+'''
+match_indent = true
+times = 1
