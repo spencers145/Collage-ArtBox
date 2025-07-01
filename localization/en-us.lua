@@ -126,7 +126,7 @@ return {
                 text = {
                     "When {C:attention}Blind{} is selected,",
                     "transform all {C:attention}Jokers{}",
-                    "to the right,",
+                    "to the right",
                     "into random ones",
                     "of the same rarity"
                 }
@@ -317,7 +317,7 @@ return {
             "when this card",
             "is held in hand",
             "scored cards gain",
-            "permanent {C:chips}+#1#{} chip"
+            "permanent {C:chips}+#1#{} chips"
             }
         },
       },

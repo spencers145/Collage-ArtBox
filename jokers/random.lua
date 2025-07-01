@@ -13,11 +13,12 @@ SMODS.Joker {
     calculate = function(self, card, context)
         if context.setting_blind and not context.blueprint and G.jokers.cards[#G.jokers.cards] ~= card then
            local right=false
+           local leftmost_random=true
 
             for k, v in ipairs(G.jokers.cards) do
                 if v == card then
                     right=true
-                elseif right==true then
+                elseif right==true and leftmost_random==true then
 
                     G.E_MANAGER:add_event(Event({
                     func = function()
@@ -50,9 +51,11 @@ SMODS.Joker {
                      v:remove()
                      return true
                     end}))
+                elseif v.config.center.key == 'j_artb_random' then
+                    leftmost_random=false
                 end
             end
         end
 
 	end
-    }
+}
