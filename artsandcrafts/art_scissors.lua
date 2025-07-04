@@ -53,8 +53,5 @@ SMODS.Consumable({
 		end
 
 		SMODS.destroy_cards(selected)
-	end,
-	can_use = function (self, card, area, copier)
-		return #G.hand.highlighted == card.ability.max_highlighted and (G.hand.highlighted[1].edition or G.hand.highlighted[1].seal or next(SMODS.get_enhancements(G.hand.highlighted[1])))
 	end
 })
