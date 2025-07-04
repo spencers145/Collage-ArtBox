@@ -94,7 +94,7 @@ SMODS.Consumable({
     return false
   end,
   set_sprites = function(self, card, front)
-    local key = card.ability and
+    local key = card.ability and card.ability.extra and
     (card.ability.extra.enhancement or card.ability.extra.seal or card.ability.extra.edition) or nil
     local ref_values = key and ArtBox.Collectables[key]
     if ref_values then

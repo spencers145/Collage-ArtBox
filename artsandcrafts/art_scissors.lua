@@ -40,7 +40,7 @@ SMODS.Consumable({
 			}))
 		end
 
-		if selected.config.center ~= G.P_CENTERS.c_base and #G.consumeables.cards + G.GAME.consumeable_buffer < G.consumeables.config.card_limit then
+		if next(SMODS.get_enhancements(selected)) and #G.consumeables.cards + G.GAME.consumeable_buffer < G.consumeables.config.card_limit then
 			G.GAME.consumeable_buffer = G.GAME.consumeable_buffer + 1
 
 			G.E_MANAGER:add_event(Event({
