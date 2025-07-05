@@ -57,6 +57,13 @@ SMODS.Atlas {
 }
 
 SMODS.Atlas {
+    key = "vouchers_atlas",
+    path = "vouchers.png",
+    px = 71,
+    py = 95
+}
+
+SMODS.Atlas {
     key = "tags_atlas",
     path = "tags.png",
     px = 34,
@@ -200,3 +207,14 @@ local path = SMODS.current_mod.path .. 'artsandcrafts/'
 for _, v in pairs(NFS.getDirectoryItems(path)) do
     assert(SMODS.load_file('artsandcrafts/' .. v))()
 end
+
+local path = SMODS.current_mod.path .. 'challenges/'
+for _, v in pairs(NFS.getDirectoryItems(path)) do
+    assert(SMODS.load_file('challenges/' .. v))()
+end
+
+local path = SMODS.current_mod.path .. 'other/'
+for _, v in pairs(NFS.getDirectoryItems(path)) do
+    assert(SMODS.load_file('other/' .. v))()
+end
+

@@ -131,6 +131,16 @@ return {
                     "of the same rarity"
                 }
             },
+
+            j_artb_trixel = {
+                name = 'Trixel',
+                text = {
+                    "This Joker gains {C:mult}+#1#{} Mult",
+                    "if played hand is",
+                    "{C:attention}Three of a Kind{}",
+                    "{C:inactive}(Currently {C:mult}#2#{} {C:inactive}Mult)"
+                }
+            },
         },
         collectable = {
             c_artb_joker_collectable = {
@@ -280,6 +290,15 @@ return {
                     '{C:attention}enhancement{}, {C:attention}seal{} and {C:attention}edition{}',
                 }
             },
+
+            c_artb_art_imitation = {
+                name = 'Imitation',
+                text = {
+                    'Select a card,',
+                    'create an {C:attention}exact?{}',
+                    'copy of it',
+                }
+            },
         },
          Spectral = {
             c_artb_infinity = {
@@ -321,6 +340,23 @@ return {
             }
         },
       },
+        Voucher = {
+            v_artb_booster_stack = {
+                name = 'Booster Stack',
+                text = {
+                    "{C:attention}+1 Booster Pack{}",
+                    "slot in the shop"
+                },
+            },
+            v_artb_booster_ritual = {
+                name = 'Booster Ritual',
+                text = {
+                    "Whenever you reroll,",
+                    "a random {C:attention}Booster Pack{}",
+                    "is added in the shop"
+                },
+            }
+        },
         Other = {
             artb_ouroboros_seal = {
                 name = 'Ouroboros Seal',
