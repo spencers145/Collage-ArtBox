@@ -95,13 +95,14 @@ SMODS.Consumable({
   end,
   set_sprites = function(self, card, front)
     local key = card.ability and card.ability.extra and
-    (card.ability.extra.enhancement or card.ability.extra.seal or card.ability.extra.edition) or nil
+        (card.ability.extra.enhancement or card.ability.extra.seal or card.ability.extra.edition) or nil
     local ref_values = key and ArtBox.Collectables[key]
     if ref_values then
       card.children.center.atlas = G.ASSET_ATLAS[ref_values.atlas]
       card.children.center:set_sprite_pos(ref_values.pos)
 
-      card.children.floating_sprite = Sprite(card.T.x, card.T.y, card.T.w, card.T.h,G.ASSET_ATLAS[ref_values.atlas], ref_values.soul_pos)
+      card.children.floating_sprite = Sprite(card.T.x, card.T.y, card.T.w, card.T.h, G.ASSET_ATLAS[ref_values.atlas],
+        ref_values.soul_pos)
       card.children.floating_sprite.role.draw_major = card
       card.children.floating_sprite.states.hover.can = false
       card.children.floating_sprite.states.click.can = false
@@ -110,20 +111,3 @@ SMODS.Consumable({
     end
   end
 })
-
-SMODS.DrawStep {
-  key = 'collectible_soul_shader',
-  order = 61,
-  func = function(self, layer)
-    if self.config.center.key == 'c_artb_mod_collectable' and self.ability.extra.shader then
-      local scale_mod = 0.07 + 0.02 * math.sin(1.8 * G.TIMERS.REAL) + 0.00 * math.sin((G.TIMERS.REAL - math.floor(G.TIMERS.REAL)) * math.pi * 14) * (1 - (G.TIMERS.REAL - math.floor(G.TIMERS.REAL))) ^ 3
-      local rotate_mod = 0.05 * math.sin(1.219 * G.TIMERS.REAL) + 0.00 * math.sin((G.TIMERS.REAL) * math.pi * 5) * (1 - (G.TIMERS.REAL - math.floor(G.TIMERS.REAL))) ^ 2
-
-      self.children.floating_sprite:draw_shader(self.ability.extra.shader, nil, self.ARGS.send_to_shader, nil, self.children.center, scale_mod, rotate_mod)
-      if self.ability.extra.shader == 'negative' then
-        self.children.floating_sprite:draw_shader('negative_shine', nil, self.ARGS.send_to_shader, nil, self.children.center, scale_mod, rotate_mod)
-      end
-    end
-  end,
-  conditions = { vortex = false, facing = 'front' },
-}
