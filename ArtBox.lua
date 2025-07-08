@@ -1,5 +1,7 @@
 ArtBox = SMODS.current_mod
+ArtBox_config = ArtBox.config
 
+--#region Atlases
 SMODS.Atlas {
     key = 'modicon',
     px = 34,
@@ -70,12 +72,47 @@ SMODS.Atlas {
     py = 34
 }
 
+--#endregion
+
+--#region Config
+ArtBox.config_tab = function()
+    return {
+        n = G.UIT.ROOT,
+        config = { align = "m", r = 0.1, padding = 0.1, colour = G.C.BLACK, minw = 8, minh = 6 },
+        nodes = {
+            { n = G.UIT.R, config = { align = "cl", padding = 0, minh = 0.1 },      nodes = {} },
+
+            -- Collectible Shine Toggle
+            {
+                n = G.UIT.R,
+                config = { align = "cl", padding = 0 },
+                nodes = {
+                    {
+                        n = G.UIT.C,
+                        config = { align = "cl", padding = 0.05 },
+                        nodes = {
+                            create_toggle { col = true, label = "", scale = 1, w = 0, shadow = true, ref_table = ArtBox_config, ref_value = "collectable_shine" },
+                        }
+                    },
+                    {
+                        n = G.UIT.C,
+                        config = { align = "c", padding = 0 },
+                        nodes = {
+                            { n = G.UIT.T, config = { text = localize('artb_collectable_shine'), scale = 0.45, colour = G.C.UI.TEXT_LIGHT } },
+                        }
+                    },
+                }
+            },
+        }
+    }
+end
 
 SMODS.current_mod.optional_features = function()
     return {
         quantum_enhancements = true
     }
 end
+--#endregion
 
 --#region Collectable Stuff
 
@@ -155,12 +192,9 @@ function ArtBox.create_collectable(key)
 
     local ref_values = ArtBox.Collectables[key]
     if ref_values then
-        collectable.config.center.atlas = ref_values.atlas
-        collectable.config.center.pos = ref_values.pos
         collectable.children.center.atlas = G.ASSET_ATLAS[ref_values.atlas]
         collectable.children.center:set_sprite_pos(ref_values.pos)
 
-        collectable.config.center.soul_pos = ref_values.soul_pos
         collectable.children.floating_sprite = Sprite(collectable.T.x, collectable.T.y, collectable.T.w, collectable.T.h, G.ASSET_ATLAS[ref_values.atlas], ref_values.soul_pos)
         collectable.children.floating_sprite.role.draw_major = collectable
         collectable.children.floating_sprite.states.hover.can = false
@@ -186,7 +220,7 @@ SMODS.DrawStep {
           self.children.floating_sprite:draw_shader('negative_shine', nil, self.ARGS.send_to_shader, nil, self.children.center, scale_mod, rotate_mod)
         end
       end
-      if self:should_draw_base_shader() then
+      if self:should_draw_base_shader() and ArtBox_config.collectable_shine then
         self.children.center:draw_shader('voucher', nil, self.ARGS.send_to_shader)
       end
     end
@@ -196,6 +230,7 @@ SMODS.DrawStep {
 
 --#endregion
 
+--#region Art Card stuff
 SMODS.ConsumableType({
     key = "art",
     primary_colour = HEX("be5e6e"),
@@ -212,7 +247,9 @@ SMODS.ConsumableType({
     shop_rate = 0,
     default = 'c_artb_art_paper'
 })
+--#endregion
 
+--#region File Loading
 local path = SMODS.current_mod.path .. 'jokers/'
 for _, v in pairs(NFS.getDirectoryItems(path)) do
     assert(SMODS.load_file('jokers/' .. v))()
@@ -242,4 +279,4 @@ local path = SMODS.current_mod.path .. 'other/'
 for _, v in pairs(NFS.getDirectoryItems(path)) do
     assert(SMODS.load_file('other/' .. v))()
 end
-
+--#endregion

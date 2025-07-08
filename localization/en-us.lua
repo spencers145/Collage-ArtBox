@@ -2,6 +2,7 @@ return {
     misc = {
         dictionary = {
             artb_bonk= "bonk!",
+            artb_collectable_shine = 'Enable Collectable Shine',
             artb_cought="cought!",
             artb_wow="WOW!",
             artb_miss="miss!",
