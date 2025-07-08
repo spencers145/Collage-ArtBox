@@ -155,12 +155,9 @@ function ArtBox.create_collectable(key)
 
     local ref_values = ArtBox.Collectables[key]
     if ref_values then
-        collectable.config.center.atlas = ref_values.atlas
-        collectable.config.center.pos = ref_values.pos
         collectable.children.center.atlas = G.ASSET_ATLAS[ref_values.atlas]
         collectable.children.center:set_sprite_pos(ref_values.pos)
 
-        collectable.config.center.soul_pos = ref_values.soul_pos
         collectable.children.floating_sprite = Sprite(collectable.T.x, collectable.T.y, collectable.T.w, collectable.T.h, G.ASSET_ATLAS[ref_values.atlas], ref_values.soul_pos)
         collectable.children.floating_sprite.role.draw_major = collectable
         collectable.children.floating_sprite.states.hover.can = false
