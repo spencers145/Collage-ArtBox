@@ -172,6 +172,28 @@ function ArtBox.create_collectable(key)
     return collectable
 end
 
+SMODS.DrawStep {
+  key = 'collectable_shaders',
+  order = 61,
+  func = function(self, layer)
+    if self.ability.set == 'collectable' then
+      if self.config.center.key == 'c_artb_mod_collectable' and self.ability.extra.shader then
+        local scale_mod = 0.07 + 0.02 * math.sin(1.8 * G.TIMERS.REAL) + 0.00 * math.sin((G.TIMERS.REAL - math.floor(G.TIMERS.REAL)) * math.pi * 14) * (1 - (G.TIMERS.REAL - math.floor(G.TIMERS.REAL))) ^ 3
+        local rotate_mod = 0.05 * math.sin(1.219 * G.TIMERS.REAL) + 0.00 * math.sin((G.TIMERS.REAL) * math.pi * 5) * (1 - (G.TIMERS.REAL - math.floor(G.TIMERS.REAL))) ^ 2
+
+        self.children.floating_sprite:draw_shader(self.ability.extra.shader, nil, self.ARGS.send_to_shader, nil, self.children.center, scale_mod, rotate_mod)
+        if self.ability.extra.shader == 'negative' then
+          self.children.floating_sprite:draw_shader('negative_shine', nil, self.ARGS.send_to_shader, nil, self.children.center, scale_mod, rotate_mod)
+        end
+      end
+      if self:should_draw_base_shader() then
+        self.children.center:draw_shader('voucher', nil, self.ARGS.send_to_shader)
+      end
+    end
+  end,
+  conditions = { vortex = false, facing = 'front' },
+}
+
 --#endregion
 
 SMODS.ConsumableType({
