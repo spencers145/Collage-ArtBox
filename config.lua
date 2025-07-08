@@ -1,3 +1,3 @@
 return {
-    collectable_shine = true
+    collectable_shine = false
 }
