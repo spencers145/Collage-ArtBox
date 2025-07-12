@@ -53,5 +53,9 @@ SMODS.Consumable({
 		end
 
 		SMODS.destroy_cards(selected)
+	end,
+
+	can_use = function(self, card, area)
+		return next(G.hand.highlighted) and #G.hand.highlighted <= card.ability.consumeable.max_highlighted and not SMODS.is_eternal(G.hand.highlighted[1])
 	end
 })
