@@ -23,7 +23,7 @@ SMODS.Enhancement({
         if context.remove_playing_cards then
       for k, val in ipairs(context.removed) do
         if val==card then
-          
+
           local pool = options or get_current_pool('Tag')
           local tag_key = pseudorandom_element(pool, pseudoseed('pinata'))
 

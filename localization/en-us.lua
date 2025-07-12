@@ -356,13 +356,27 @@ return {
                     "a random {C:attention}Booster Pack{}",
                     "is added in the shop"
                 },
-            }
+            },
+            v_artb_pen_holder = {
+                name = 'Pen Holder',
+                text = {
+                    "{C:attention}+1{} consumable slot",
+                },
+            },
+            v_artb_used_supplies = {
+                name = 'Used Supplies',
+                text = {
+                    "When a card is destroyed,",
+                    'get a {C:dark_edition}Negative{} collectable of its',
+                    '{C:attention}enhancement{}, {C:attention}seal{} and {C:attention}edition{}',
+                },
+            },
         },
         Other = {
             artb_ouroboros_seal = {
                 name = 'Ouroboros Seal',
                 text = {
-                    'When this card is {C:attention}destroyed{},',
+                    'When card is {C:attention}destroyed{},',
                     'an exact copy is added to the {C:attention}deck{}'
                 }
             },

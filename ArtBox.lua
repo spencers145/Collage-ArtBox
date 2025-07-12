@@ -155,6 +155,7 @@ ArtBox.Collectables = {
     ['m_artb_pinata'] = { atlas = 'artb_collectable_atlas', pos = { x = 4, y = 2 }, soul_pos = { x = 4, y = 3 } },
     ['m_artb_wood'] = { atlas = 'artb_collectable_atlas', pos = { x = 9, y = 2 }, soul_pos = { x = 9, y = 3 } },
     ['m_artb_stained'] = { atlas = 'artb_collectable_atlas', pos = { x = 8, y = 2 }, soul_pos = { x = 8, y = 3 } },
+    ['m_artb_marble'] = { atlas = 'artb_collectable_atlas', pos = { x = 1, y = 6 }, soul_pos = { x = 1, y = 7 } },
 
     ['m_paperback_bandaged'] = { atlas = 'artb_collectable_atlas', pos = { x = 5, y = 4 }, soul_pos = { x = 5, y = 5 } },
     ['m_paperback_soaked'] = { atlas = 'artb_collectable_atlas', pos = { x = 6, y = 4 }, soul_pos = { x = 6, y = 5 } },
@@ -162,6 +163,11 @@ ArtBox.Collectables = {
     ['m_paperback_wrapped'] = { atlas = 'artb_collectable_atlas', pos = { x = 8, y = 4 }, soul_pos = { x = 8, y = 5 } },
     ['m_paperback_domino'] = { atlas = 'artb_collectable_atlas', pos = { x = 9, y = 4 }, soul_pos = { x = 9, y = 5 } },
     ['m_paperback_stained'] = { atlas = 'artb_collectable_atlas', pos = { x = 0, y = 6 }, soul_pos = { x = 0, y = 7 } },
+
+    ['m_sarc_strawberry'] = { atlas = 'artb_collectable_atlas', pos = { x = 2, y = 6 }, soul_pos = { x = 2, y = 7 } },
+    ['m_sarc_slime'] = { atlas = 'artb_collectable_atlas', pos = { x = 3, y = 6 }, soul_pos = { x = 3, y = 7 } },
+    ['m_sarc_flow'] = { atlas = 'artb_collectable_atlas', pos = { x = 4, y = 6 }, soul_pos = { x = 4, y = 7 } },
+    ['m_sarc_luminice'] = { atlas = 'artb_collectable_atlas', pos = { x = 5, y = 6 }, soul_pos = { x = 5, y = 7 } },
 
     --Editions
     ['e_polychrome'] = { atlas = 'artb_collectable_atlas', pos = { x = 3, y = 2 }, soul_pos = { x = 3, y = 3 }, shader = 'polychrome', },
