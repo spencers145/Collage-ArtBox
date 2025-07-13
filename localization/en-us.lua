@@ -211,8 +211,7 @@ return {
             c_artb_art_glitter = {
                 name = 'Glitter',
                 text = {
-                    'Add a {C:dark_edition}Foil{}, {C:dark_edition}Holographic{},',
-                    'or {C:dark_edition}Polychrome{} effect to',
+                    'Add a random edition to',
                     '{C:attention}1{} random card in hand'
                 }
             },
@@ -300,6 +299,15 @@ return {
                     'copy of it',
                 }
             },
+
+            c_artb_art_sculpting = {
+                name = 'Sculpting',
+                text = {
+                    "Enchances {C:attention}#1#{}",
+                    "selected card to",
+                    "{C:attention}Marble Card{}",
+                }
+            },
         },
          Spectral = {
             c_artb_infinity = {
@@ -340,6 +348,16 @@ return {
             "permanent {C:chips}+#1#{} chips"
             }
         },
+
+        m_artb_marble = {
+           name = 'Marble Card',
+           text = {
+            "No rank or suit,",
+            "gives {X:chips,C:white}X2{} Chips",
+            "after being played {C:attention}4{} times",
+            "{C:inactive}(#2#/4){}"
+            }
+        },
       },
         Voucher = {
             v_artb_booster_stack = {
@@ -370,6 +388,18 @@ return {
                     'get a {C:dark_edition}Negative{} collectable of its',
                     '{C:attention}enhancement{}, {C:attention}seal{} and {C:attention}edition{}',
                 },
+            },
+        },
+
+        Back = {
+            b_artb_handmade = {
+                name = "Handmade Deck",
+                text = {
+                "Start run with the",
+                "{C:attention,T:v_artb_pen_holder}#1#{} Voucher",
+                "and a random collectable",
+                "{C:attention}enhancement{}, {C:attention}seal{} and {C:attention}edition{}"
+                }
             },
         },
         Other = {
