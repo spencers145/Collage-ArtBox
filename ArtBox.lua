@@ -143,6 +143,10 @@ ArtBox.Collectables = {
     ['artb_button'] = { atlas = 'artb_collectable_atlas', pos = { x = 0, y = 4 }, soul_pos = { x = 0, y = 5 } },
     ['artb_ouroboros'] = { atlas = 'artb_collectable_atlas', pos = { x = 1, y = 4 }, soul_pos = { x = 1, y = 5 } },
 
+    ['gb_dual'] = { atlas = 'artb_collectable_atlas', pos = { x = 9, y = 6 }, soul_pos = { x = 9, y = 7 } },
+    ['gb_fortune'] = { atlas = 'artb_collectable_atlas', pos = { x = 0, y = 8 }, soul_pos = { x = 0, y = 9 } },
+    ['gb_infinite'] = { atlas = 'artb_collectable_atlas', pos = { x = 1, y = 8 }, soul_pos = { x = 1, y = 9 } },
+
     --Enhancements
     ['m_bonus'] = { atlas = 'artb_collectable_atlas', pos = { x = 1, y = 0 }, soul_pos = { x = 1, y = 1 } },
     ['m_mult'] = { atlas = 'artb_collectable_atlas', pos = { x = 4, y = 0 }, soul_pos = { x = 4, y = 1 } },
@@ -168,6 +172,10 @@ ArtBox.Collectables = {
     ['m_sarc_slime'] = { atlas = 'artb_collectable_atlas', pos = { x = 3, y = 6 }, soul_pos = { x = 3, y = 7 } },
     ['m_sarc_flow'] = { atlas = 'artb_collectable_atlas', pos = { x = 4, y = 6 }, soul_pos = { x = 4, y = 7 } },
     ['m_sarc_luminice'] = { atlas = 'artb_collectable_atlas', pos = { x = 5, y = 6 }, soul_pos = { x = 5, y = 7 } },
+
+    ['m_gb_river'] = { atlas = 'artb_collectable_atlas', pos = { x = 6, y = 6 }, soul_pos = { x = 6, y = 7 } },
+    ['m_gb_wooden'] = { atlas = 'artb_collectable_atlas', pos = { x = 7, y = 6 }, soul_pos = { x = 7, y = 7 } },
+    ['m_gb_honey'] = { atlas = 'artb_collectable_atlas', pos = { x = 8, y = 6 }, soul_pos = { x = 8, y = 7 } },
 
     --Editions
     ['e_polychrome'] = { atlas = 'artb_collectable_atlas', pos = { x = 3, y = 2 }, soul_pos = { x = 3, y = 3 }, shader = 'polychrome', },
