@@ -10,6 +10,7 @@ return {
             artb_plus_art = "+1 Art",
             artb_plus_tag = "+1 Tag",
             artb_wood="wood!",
+            artb_wild="Wild",
         },
         labels = {
             artb_ouroboros_seal = "Ouroboros Seal",
@@ -80,9 +81,9 @@ return {
             j_artb_rorschach = {
                 name = 'Rorschach',
                 text = {
-                    "{C:clubs}Clubs{} are",
-                    "considered",
-                    "{C:attention}Wild Cards{}",
+                    "All played {C:clubs}Club{} cards",
+                    "become {C:attention}Wild Cards{}",
+                    "when scored",
                 }
             },
 
@@ -142,10 +143,22 @@ return {
                     "{C:inactive}(Currently {C:mult}#2#{} {C:inactive}Mult)"
                 }
             },
+
+            j_artb_seven_nine = {
+                name = '789',
+                text = {
+                    "When {C:attention}7{} and {C:attention}9{} score",
+                    "in the same hand",
+                    "destroy all {C:attention}9{}s",
+                    "scored {C:attention}7{}s give {C:mult}+#2#{} Mult",
+                    "for each {C:attention}9{} destroyed this way",
+                    "{C:inactive}(Currently {C:mult}#1#{} {C:inactive}Mult)"
+                }
+            },
         },
         collectable = {
             c_artb_joker_collectable = {
-                name = 'Joker',
+                name = 'Collectable Joker',
                 text = {
                     "{C:attention}+1 consumable slot{} when held",
                     "If you already have",
