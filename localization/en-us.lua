@@ -183,7 +183,7 @@ return {
                 name = 'Modifier Collectable',
                 text = {
                     "Applies {C:attention}#1#{} to",
-                    "{C:attention}1{} selected card",
+                    "{C:attention}1{} selected playing card",
                 }
             },
 
@@ -191,7 +191,7 @@ return {
                 name = 'Modifier Collectable',
                 text = {
                     "Applies {C:attention}???{} to",
-                    "{C:attention}1{} selected card",
+                    "{C:attention}1{} selected playing card",
                 }
             },
         },
