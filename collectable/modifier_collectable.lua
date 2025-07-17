@@ -124,5 +124,5 @@ end
 -- Overflow stacking compat
 
 if Overflow then
-  Overflow.blacklist["Collectable"] = true
+  Overflow.blacklist["collectable"] = true
 end
