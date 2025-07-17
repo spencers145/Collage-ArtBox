@@ -124,15 +124,5 @@ end
 -- Overflow stacking compat
 
 if Overflow then
-  local can_mergeref = Overflow.can_merge
-  function Overflow.can_merge(self, card, bypass, ignore_area)
-    if self.config.center.key == "c_artb_mod_collectable" and card.config.center.key == "c_artb_mod_collectable" then
-      if (self.ability.seal and self.ability.seal ~= card.ability.seal)
-          and (self.ability.edition and self.ability.edition ~= card.ability.edition)
-          and (self.ability.enhancement and self.ability.enhancement ~= card.ability.enhancement) then
-        return false
-      end
-    end
-    return can_mergeref(self, card, bypass, ignore_area)
-  end
+  Overflow.blacklist["Collectable"] = true
 end
