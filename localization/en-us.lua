@@ -1,16 +1,16 @@
 return {
     misc = {
         dictionary = {
-            artb_bonk= "bonk!",
+            artb_bonk = "Bonk!",
             artb_collectable_shine = 'Enable Collectable Shine',
-            artb_cought="cought!",
-            artb_wow="WOW!",
-            artb_miss="miss!",
+            artb_caught = "Caught!",
+            artb_wow = "WOW!",
+            artb_miss = "Miss!",
             artb_arts_crafts_pack = "Arts & Crafts Pack",
             artb_plus_art = "+1 Art",
             artb_plus_tag = "+1 Tag",
-            artb_wood="wood!",
-            artb_wild="Wild",
+            artb_wood = "Wood!",
+            artb_wild = "Wild",
         },
         labels = {
             artb_ouroboros_seal = "Ouroboros Seal",
@@ -24,8 +24,8 @@ return {
                 name = 'Collage',
                 text = {
                     "When any playing card is {C:attention}destroyed{},",
-                    "Gains {C:chips}+#1#{} Chips, {C:mult}+#3#{} Mult, or {X:mult,C:white}X#5#{} Mult",
-                    "{C:inactive}(Currently {C:chips}#2#{} {C:inactive}Chips/{C:mult}#4#{} {C:inactive}Mult/{X:mult,C:white}X#6#{} {C:inactive}Mult)"
+                    "gains {C:chips}+#1#{} Chips, {C:mult}+#3#{} Mult, or {X:mult,C:white}X#5#{} Mult",
+                    "{C:inactive}(Currently: {C:chips}#2#{} {C:inactive}Chips/{C:mult}#4#{} {C:inactive}Mult/{X:mult,C:white}X#6#{} {C:inactive}Mult)"
                 }
             },
 
@@ -34,7 +34,7 @@ return {
                 text = {
                     "Retrigger all scored cards",
                     "if played hand",
-			        "contains a {C:attention}Straight{}",
+                    "contains a {C:attention}Straight{}",
                 }
             },
 
@@ -42,8 +42,8 @@ return {
                 name = 'Mitosis',
                 text = {
                     "{C:mult}+#1#{} Mult",
-                    "When {C:attention}blind{} is selected",
-			        "creates a copy of this Joker",
+                    "When {C:attention}blind{} is selected,",
+                    "creates a copy of this Joker",
                 }
             },
 
@@ -59,13 +59,16 @@ return {
 
             j_artb_rubberhose = {
                 name = 'Rubber Hose',
-                text = {
+                text = { {
                     "Played cards with",
                     "{C:clubs}Club{} suit give",
-                    "{C:mult}+#2#{} Mult when scored,",
-                    "cards with {C:spades}Spade{} suit",
-                    "give {C:chips}+#1#{} chips",
-                }
+                    "{C:mult}+#2#{} Mult when scored",
+                },
+                {
+                    "Played cards with",
+                    "{C:spades}Spade{} suit give",
+                    "{C:chips}+#1#{} Chips when scored",
+                } }
             },
 
             j_artb_clawmachine = {
@@ -74,7 +77,7 @@ return {
                     "When {C:attention}Blind{} is selected,",
                     "{C:green}#1# in #2#{} chance",
                     "to create a",
-                    "{C:attention}Collectable Joker{}",
+                    "{C:attention}Joker Collectable{}",
                 }
             },
 
@@ -111,7 +114,7 @@ return {
                 text = {
                     "Retrigger all scored cards",
                     "if played hand has 3",
-			        "or less scored cards",
+                    "or less scored cards",
                 }
             },
 
@@ -129,7 +132,7 @@ return {
                     "When {C:attention}Blind{} is selected,",
                     "transform all {C:attention}Jokers{}",
                     "to the right",
-                    "into random ones",
+                    "into random Jokers",
                     "of the same rarity"
                 }
             },
@@ -140,29 +143,31 @@ return {
                     "This Joker gains {C:mult}+#1#{} Mult",
                     "if played hand is",
                     "{C:attention}Three of a Kind{}",
-                    "{C:inactive}(Currently {C:mult}#2#{} {C:inactive}Mult)"
+                    "{C:inactive}(Currently: {C:mult}#2#{} {C:inactive}Mult)"
                 }
             },
 
             j_artb_seven_nine = {
                 name = '789',
-                text = {
+                text = { {
                     "When {C:attention}7{} and {C:attention}9{} score",
-                    "in the same hand",
+                    "in the same hand,",
                     "destroy all {C:attention}9{}s",
-                    "scored {C:attention}7{}s give {C:mult}+#2#{} Mult",
-                    "for each {C:attention}9{} destroyed this way",
-                    "{C:inactive}(Currently {C:mult}#1#{} {C:inactive}Mult)"
-                }
+                },
+                {
+                    "Scored {C:attention}7{}s give {C:mult}+#2#{} Mult for",
+                    "each {C:attention}9{} destroyed by this card",
+                    "{C:inactive}(Currently: {C:mult}+#1#{} {C:inactive}Mult)"
+                } }
             },
         },
         collectable = {
             c_artb_joker_collectable = {
-                name = 'Collectable Joker',
+                name = 'Joker Collectable',
                 text = {
                     "{C:attention}+1 consumable slot{} when held",
                     "If you already have",
-                    "a {C:attention}Collectable Joker{}",
+                    "a {C:attention}Joker Collectable{}",
                     "destroys this and gives",
                     "the other one {C:money}+#1#{} sell value"
                 }
@@ -173,13 +178,13 @@ return {
                 text = {
                     "{C:attention}+#2# consumable slots{} when held",
                     "If you already have",
-                    "a {C:attention}limited edition{}",
+                    "a {C:attention}Limited Edition{}",
                     "destroys this and gives",
                     "the other one {C:money}+#1#{} sell value",
                     "and {C:attention}+1 consumable slot{}"
                 }
             },
-               c_artb_mod_collectable = {
+            c_artb_mod_collectable = {
                 name = 'Modifier Collectable',
                 text = {
                     "Applies {C:attention}#1#{} to",
@@ -187,7 +192,7 @@ return {
                 }
             },
 
-             c_artb_mod_collectable_empty = {
+            c_artb_mod_collectable_empty = {
                 name = 'Modifier Collectable',
                 text = {
                     "Applies {C:attention}???{} to",
@@ -254,8 +259,8 @@ return {
                     'Gives the total sell',
                     'value of all held consumables',
                     '{C:inactive}(max of {C:money}$30{}){}',
-                    'then gives you a {C:attention}Collectable Joker{}',
-                    '{C:inactive}(currently {C:money}$#2#{}){}'
+                    'and creates a {C:attention}Collectable Joker{}',
+                    '{C:inactive}(Currently: {C:money}$#2#{}){}'
                 }
             },
 
@@ -268,7 +273,7 @@ return {
                 }
             },
 
-             c_artb_art_thread = {
+            c_artb_art_thread = {
                 name = 'Thread',
                 text = {
                     'Add a Button Seal',
@@ -277,7 +282,7 @@ return {
                 }
             },
 
-             c_artb_art_swatch = {
+            c_artb_art_swatch = {
                 name = 'Swatch',
                 text = {
                     'Creates a random',
@@ -285,11 +290,11 @@ return {
                 }
             },
 
-             c_artb_art_carving = {
+            c_artb_art_carving = {
                 name = 'Carving',
                 text = {
                     "Enchances {C:attention}#1#{}",
-                    "selected card to",
+                    "selected playing card to",
                     "{C:attention}Wood Card{}",
                 }
             },
@@ -297,17 +302,18 @@ return {
             c_artb_art_scissors = {
                 name = 'Scissors',
                 text = {
-                    'Select a card,',
-                    'destroy it and',
-                    'get a collectable of its',
-                    '{C:attention}enhancement{}, {C:attention}seal{} and {C:attention}edition{}',
+                    'Destroys {C:attention}1{} selected',
+                    'playing card and',
+                    'creates Collectables of its',
+                    '{C:attention}Edition{}, {C:attention}Seal{} and {C:attention}Enhancement{}',
+                    '{C:inactive}(Must have room)'
                 }
             },
 
             c_artb_art_imitation = {
                 name = 'Imitation',
                 text = {
-                    'Select a card,',
+                    'Select {C:attention}1{} playing card,',
                     'create an {C:attention}exact?{}',
                     'copy of it',
                 }
@@ -317,61 +323,61 @@ return {
                 name = 'Sculpting',
                 text = {
                     "Enchances {C:attention}#1#{}",
-                    "selected card to",
+                    "selected playing card to",
                     "{C:attention}Marble Card{}",
                 }
             },
         },
-         Spectral = {
+        Spectral = {
             c_artb_infinity = {
                 name = 'Infinity',
                 text = {
-                    'Add a {C:dark_edition}Ouroboros Seal{}',
+                    'Add an {C:dark_edition}Ouroboros Seal{}',
                     'to {C:attention}1{} selected',
                     'card in your hand'
                 }
             },
         },
         Enhanced = {
-           m_artb_pinata = {
-           name = 'Pinata Card',
-           text = {
-            'When this card is {C:attention}destroyed{},',
-            'gain {C:money}$#1#{}',
-            'and a random {C:attention}tag{}'
-            }
-          },
-         m_artb_stained = {
-        name = 'Stained Card',
-        text = {
-          "No rank or suit,",
-          "when this card is {C:attention}discarded{},",
-          "{C:green}#1# in #2#{} chance",
-          "to create an {C:attention}Art card{},",
-          "{C:green}#1# in #3#{} chance",
-          "to create a {C:attention}Creative tag{}",
-          }
-        },
-        m_artb_wood = {
-           name = 'Wood Card',
-           text = {
-            "when this card",
-            "is held in hand",
-            "scored cards gain",
-            "permanent {C:chips}+#1#{} chips"
-            }
-        },
+            m_artb_pinata = {
+                name = 'Pinata Card',
+                text = {
+                    'When this card is {C:attention}destroyed{},',
+                    'gain {C:money}$#1#{}',
+                    'and a random {C:attention}tag{}'
+                }
+            },
+            m_artb_stained = {
+                name = 'Stained Card',
+                text = {
+                    "No rank or suit,",
+                    "When this card is {C:attention}discarded{},",
+                    "{C:green}#1# in #2#{} chance",
+                    "to create an {C:attention}Art card{},",
+                    "{C:green}#1# in #3#{} chance",
+                    "to create a {C:attention}Creative tag{}",
+                }
+            },
+            m_artb_wood = {
+                name = 'Wood Card',
+                text = {
+                    "When this card",
+                    "is held in hand,",
+                    "scored cards gain",
+                    "permanent {C:chips}+#1#{} Chips"
+                }
+            },
 
-        m_artb_marble = {
-           name = 'Marble Card',
-           text = {
-            "No rank or suit,",
-            "gives {X:chips,C:white}X2{} Chips",
-            "after being played {C:attention}4{} times",
-            "{C:inactive}(#2#/4){}"
-            }
+            m_artb_marble = {
+                name = 'Marble Card',
+                text = {
+                    "No rank or suit,",
+                    "Gives {X:chips,C:white}X2{} Chips",
+                    "after being played {C:attention}4{} times",
+                    "{C:inactive}(#2#/4){}"
+                }
+            },
         },
-      },
         Voucher = {
             v_artb_booster_stack = {
                 name = 'Booster Stack',
@@ -399,7 +405,7 @@ return {
                 text = {
                     "When a card is destroyed,",
                     'get a {C:dark_edition}Negative{} collectable of its',
-                    '{C:attention}enhancement{}, {C:attention}seal{} and {C:attention}edition{}',
+                    '{C:attention}Edition{}, {C:attention}Seal{} and {C:attention}Enhancement{}',
                 },
             },
         },
@@ -408,10 +414,10 @@ return {
             b_artb_handmade = {
                 name = "Handmade Deck",
                 text = {
-                "Start run with the",
-                "{C:attention,T:v_artb_pen_holder}#1#{} Voucher",
-                "and a random collectable",
-                "{C:attention}enhancement{}, {C:attention}seal{} and {C:attention}edition{}"
+                    "Start run with the",
+                    "{C:attention,T:v_artb_pen_holder}#1#{} voucher",
+                    "and a random {C:attention}enhancement{},",
+                    "{C:attention}seal{} and {C:attention}edition{} Collectable"
                 }
             },
         },
@@ -419,7 +425,7 @@ return {
             artb_ouroboros_seal = {
                 name = 'Ouroboros Seal',
                 text = {
-                    'When card is {C:attention}destroyed{},',
+                    'When this card is {C:attention}destroyed{},',
                     'an exact copy is added to the {C:attention}deck{}'
                 }
             },
@@ -427,7 +433,7 @@ return {
             artb_brick_seal = {
                 name = 'Brick Seal',
                 text = {
-                    'This card gets',
+                    'This card gains',
                     '{C:mult}+1{} extra Mult',
                     'when scored'
                 }
@@ -436,42 +442,42 @@ return {
             artb_button_seal = {
                 name = 'Button Seal',
                 text = {
-                    'when scored, {C:attention}suit{}',
+                    'When scored, {C:attention}suit{}',
                     'of a random card in hand',
-                    'changes to this cards {C:attention}suit{}'
+                    'changes to this card\'s {C:attention}suit{}'
                 }
             },
 
             p_artb_arts_crafts_small_1 = {
-            name = "Arts and Crafts Pack",
-            text = {
-              "Choose {C:attention}#1#{} of up to {C:attention}#2#",
-              "{C:be5e6e)}Art{} cards to use",
-            },
+                name = "Arts and Crafts Pack",
+                text = {
+                    "Choose {C:attention}#1#{} of up to {C:attention}#2#",
+                    "{C:be5e6e)}Art{} cards to use",
+                },
             },
 
             p_artb_arts_crafts_small_2 = {
-            name = "Arts and Crafts Pack",
-            text = {
-              "Choose {C:attention}#1#{} of up to {C:attention}#2#",
-              "{C:be5e6e)}Art{} cards to use",
-            },
+                name = "Arts and Crafts Pack",
+                text = {
+                    "Choose {C:attention}#1#{} of up to {C:attention}#2#",
+                    "{C:be5e6e)}Art{} cards to use",
+                },
             },
 
             p_artb_arts_crafts_jumbo = {
-            name = "Jumbo Arts and Crafts Pack",
-            text = {
-              "Choose {C:attention}#1#{} of up to {C:attention}#2#",
-              "{C:be5e6e)}Art{} cards to use",
-            },
+                name = "Jumbo Arts and Crafts Pack",
+                text = {
+                    "Choose {C:attention}#1#{} of up to {C:attention}#2#",
+                    "{C:be5e6e)}Art{} cards to use",
+                },
             },
 
             p_artb_arts_crafts_mega = {
-            name = "Mega Arts and Crafts Pack",
-            text = {
-              "Choose {C:attention}#1#{} of up to {C:attention}#2#",
-              "{C:be5e6e)}Art{} cards to use",
-            },
+                name = "Mega Arts and Crafts Pack",
+                text = {
+                    "Choose {C:attention}#1#{} of up to {C:attention}#2#",
+                    "{C:be5e6e)}Art{} cards to use",
+                },
             },
         },
     }

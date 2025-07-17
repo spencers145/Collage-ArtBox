@@ -39,7 +39,7 @@ SMODS.Joker {
                   new_card:add_to_deck()
                   G.consumeables:emplace(new_card)
                 else
-                    SMODS.calculate_effect({message = localize('artb_cought'), colour = G.C.money}, card)
+                    SMODS.calculate_effect({message = localize('artb_caught'), colour = G.C.money}, card)
 
                     local new_card = create_card("collectable", G.consumables, nil, nil, nil, nil, 'c_artb_joker_collectable')
                   new_card:add_to_deck()
