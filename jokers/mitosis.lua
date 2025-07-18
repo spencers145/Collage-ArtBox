@@ -11,7 +11,7 @@ SMODS.Joker {
     cost = 7,
     unlocked = true,
     discovered = true,
-    blueprint_compat = false,
+    blueprint_compat = true,
     eternal_compat = false,
     perishable_compat = true,
 
@@ -41,7 +41,7 @@ SMODS.Joker {
                     end}))
         end 
 
-        if context.joker_main and not context.blueprint then
+        if context.joker_main then
             return {
               mult = card.ability.extra.mult,
             }

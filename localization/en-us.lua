@@ -160,6 +160,22 @@ return {
                     "{C:inactive}(Currently: {C:mult}+#1#{} {C:inactive}Mult)"
                 } }
             },
+
+            j_artb_collector = {
+                name = 'Collector',
+                text = { {
+                    "When {C:attention}Blind{} is selected,",
+                    "adds {C:money}$#3#{} of {C:attention}sell value{}",
+                    "to a {C:attention}Joker{} or {C:attention}Consumable{}",
+                    "to the right",
+                },
+                {
+                    "Gives {X:mult,C:white}X#1#{} Mult times",
+                    "total {C:attention}sell value{} of all owned",
+                    "{C:attention}Jokers{} and {C:attention}Consumables{}",
+                    "{C:inactive}(Currently: {X:mult,C:white}X#2#{} {C:inactive}Mult)"
+                } }
+            },
         },
         collectable = {
             c_artb_joker_collectable = {

@@ -10,7 +10,7 @@ SMODS.Joker {
   rarity = 3,
   pos = { x = 6, y = 1 },
   atlas = 'joker_atlas',
-  cost = 7,
+  cost = 9,
   unlocked = true,
   discovered = true,
   blueprint_compat = true,
@@ -53,7 +53,7 @@ SMODS.Joker {
       end
     end
 
-    if context.after and card.ability.extra.gained_this_round > 0 then
+    if context.after and card.ability.extra.gained_this_round > 0 and not context.blueprint then
       local message_num = card.ability.extra.gained_this_round
       card.ability.extra.gained_this_round = 0
       return {
