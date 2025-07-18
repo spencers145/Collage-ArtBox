@@ -41,7 +41,7 @@ SMODS.Enhancement({
                       return true
                     end
                   }))
-                  SMODS.calculate_effect({ message = localize('artb_plus_art'), colour = G.C.SET.DIVINE },
+                  SMODS.calculate_effect({ message = localize('artb_plus_art') },
                     context.blueprint_card or card)
                   return true
                 end)

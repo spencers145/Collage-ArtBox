@@ -94,18 +94,20 @@ SMODS.Consumable({
     return false
   end,
   set_sprites = function(self, card, front)
-    local key = card.ability and card.ability.extra and (card.ability.extra.enhancement or card.ability.extra.seal or card.ability.extra.edition) or nil
+    local key = card.ability and card.ability.extra and
+        (card.ability.extra.enhancement or card.ability.extra.seal or card.ability.extra.edition) or nil
     local ref_values = key and ArtBox.Collectables[key]
     if ref_values then
-        card.children.center.atlas = G.ASSET_ATLAS[ref_values.atlas]
-        card.children.center:set_sprite_pos(ref_values.pos)
+      card.children.center.atlas = G.ASSET_ATLAS[ref_values.atlas]
+      card.children.center:set_sprite_pos(ref_values.pos)
 
-        card.children.floating_sprite = Sprite(card.T.x, card.T.y, card.T.w, card.T.h, G.ASSET_ATLAS[ref_values.atlas], ref_values.soul_pos)
-        card.children.floating_sprite.role.draw_major = card
-        card.children.floating_sprite.states.hover.can = false
-        card.children.floating_sprite.states.click.can = false
+      card.children.floating_sprite = Sprite(card.T.x, card.T.y, card.T.w, card.T.h, G.ASSET_ATLAS[ref_values.atlas],
+        ref_values.soul_pos)
+      card.children.floating_sprite.role.draw_major = card
+      card.children.floating_sprite.states.hover.can = false
+      card.children.floating_sprite.states.click.can = false
 
-        card.ability.extra.shader = ref_values.shader
+      card.ability.extra.shader = ref_values.shader
     end
   end
 })
@@ -117,4 +119,10 @@ function copy_card(other, new_card, card_scale, playing_card, strip_edition)
     card:set_sprites(card.config.center)
   end
   return card
+end
+
+-- Overflow stacking compat
+
+if Overflow then
+  Overflow.blacklist["collectable"] = true
 end
