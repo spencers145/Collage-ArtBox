@@ -11,6 +11,9 @@ return {
             artb_plus_tag = "+1 Tag",
             artb_wood = "Wood!",
             artb_wild = "Wild",
+            artb_hungry="Hungry",
+            artb_fed="Fed",
+            artb_starved="Starved :(",
         },
         labels = {
             artb_ouroboros_seal = "Ouroboros Seal",
@@ -176,6 +179,26 @@ return {
                     "{C:inactive}(Currently: {X:mult,C:white}X#2#{} {C:inactive}Mult)"
                 } }
             },
+
+            j_artb_origami = {
+                name = 'Origami',
+                text = { {
+                    "Create an {C:attention}Art{} card",
+                    "When {C:attention}Blind{} is selected",
+                    "{C:inactive}(Must have room){}"
+                } }
+            },
+
+            j_artb_clownfish = {
+                name = 'Clownfish',
+                text = { {
+                    "{X:mult,C:white}X#2#{} Mult",
+                    "Dies if no cards",
+                    "were sold this round",
+                    "{C:inactive}(Currently: #1#){}"
+                } }
+            },
+
         },
         collectable = {
             c_artb_joker_collectable = {
