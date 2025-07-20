@@ -193,7 +193,8 @@ return {
                 name = 'Clownfish',
                 text = { {
                     "{X:mult,C:white}X#2#{} Mult",
-                    "Dies if no cards",
+                    "when round ends",
+                    "dies if no cards",
                     "were sold this round",
                     "{C:inactive}(Currently: #1#){}"
                 } }
