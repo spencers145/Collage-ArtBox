@@ -96,9 +96,8 @@ return {
             j_artb_sadcube = {
                 name = 'Sad Cube',
                 text = {
-                    "{C:attention}Lucky Cards{} give",
-                    "{C:money}$#1#{} when they do not",
-                    "trigger their ability",
+                    "Gain {C:money}$#1#{} when",
+                    "any probability {C:attention}fails{}",
                 }
             },
 
@@ -394,7 +393,7 @@ return {
                     "When this card is {C:attention}discarded{},",
                     "{C:green}#1# in #2#{} chance",
                     "to create an {C:attention}Art card{},",
-                    "{C:green}#1# in #3#{} chance",
+                    "{C:green}#3# in #4#{} chance",
                     "to create a {C:attention}Creative tag{}",
                 }
             },

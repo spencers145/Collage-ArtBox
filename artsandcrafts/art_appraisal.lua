@@ -7,8 +7,7 @@ SMODS.Consumable ({
     config = {
         mod_conv = "c_artb_joker_collectable",
       extra = {
-        money=0,
-        secret_odds=20
+        money=0
       }
     },
 	pos = { x = 1, y = 1 },
@@ -36,8 +35,7 @@ SMODS.Consumable ({
     return {
       vars = {
         G.GAME.probabilities.normal,
-        card.ability.extra.money,
-        card.ability.extra.secret_odds,
+        card.ability.extra.money
       }
     }
     end,
@@ -64,7 +62,7 @@ SMODS.Consumable ({
             return true end }))
 
     G.E_MANAGER:add_event(Event({trigger = 'after', delay = 0.4, func = function()
-       if pseudorandom("appraisal") < G.GAME.probabilities.normal / card.ability.extra.secret_odds then
+       if pseudorandom("appraisal") < 0.05 then
                     local new_card = create_card("collectable", G.consumables, nil, nil, nil, nil, 'c_artb_limited_edition_collectable')
                   new_card:add_to_deck()
                   G.consumeables:emplace(new_card)
