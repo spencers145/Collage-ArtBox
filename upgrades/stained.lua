@@ -7,18 +7,20 @@ SMODS.Enhancement({
   replace_base_card = true,
   config = {
     extra = {
-      odds = 3,
-      super_odds = 10
-    }
+        n=1,
+        d=3,
+        super_n=1,
+        super_d=10
+      }
   },
 
   loc_vars = function(self, info_queue, card)
     info_queue[#info_queue + 1] = G.P_TAGS.tag_artb_creative
+    local n, d = SMODS.get_probability_vars(card, card.ability.extra.n,  card.ability.extra.d, 'stained')
+    local super_n, super_d = SMODS.get_probability_vars(card, card.ability.extra.super_n,  card.ability.extra.super_d, 'stained')
     return {
       vars = {
-        G.GAME.probabilities.normal,
-        card.ability.extra.odds,
-        card.ability.extra.super_odds
+        n, d, super_n, super_d
       }
     }
   end,
@@ -26,30 +28,21 @@ SMODS.Enhancement({
   calculate = function(self, card, context)
     if context.discard then
       if context.other_card == card then
-        if pseudorandom("stained") < G.GAME.probabilities.normal / card.ability.extra.odds and #G.consumeables.cards + G.GAME.consumeable_buffer < G.consumeables.config.card_limit then
-          return {
+        if SMODS.pseudorandom_probability(card, 'stained', card.ability.extra.n, card.ability.extra.d, 'stained') and #G.consumeables.cards + G.GAME.consumeable_buffer < G.consumeables.config.card_limit then
+          G.GAME.consumeable_buffer=G.GAME.consumeable_buffer+1
+          G.E_MANAGER:add_event(Event({
             func = function()
-              G.E_MANAGER:add_event(Event({
-                func = (function()
-                  G.E_MANAGER:add_event(Event({
-                    func = function()
-                      SMODS.add_card {
-                        set = 'art',
-                        key_append = 'stained'
-                      }
-                      G.GAME.consumeable_buffer = 0
-                      return true
-                    end
-                  }))
-                  SMODS.calculate_effect({ message = localize('artb_plus_art') },
-                    context.blueprint_card or card)
-                  return true
-                end)
-              }))
+            SMODS.add_card {
+              set = 'art',
+              key_append = 'stained'
+            }
+            G.GAME.consumeable_buffer = 0
+            return true
             end
-          }
+          }))
+          SMODS.calculate_effect({extra = { message = localize('artb_plus_art')}}, card)
         end
-        if pseudorandom("stained") < G.GAME.probabilities.normal / card.ability.extra.super_odds then
+        if SMODS.pseudorandom_probability(card, 'stained', card.ability.extra.super_n, card.ability.extra.super_d, 'stained') then
           local tag = Tag("tag_artb_creative")
           add_tag(tag)
           return {

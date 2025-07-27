@@ -11,6 +11,9 @@ return {
             artb_plus_tag = "+1 Tag",
             artb_wood = "Wood!",
             artb_wild = "Wild",
+            artb_hungry="Hungry",
+            artb_fed="Fed",
+            artb_starved="Starved :(",
         },
         labels = {
             artb_ouroboros_seal = "Ouroboros Seal",
@@ -93,9 +96,8 @@ return {
             j_artb_sadcube = {
                 name = 'Sad Cube',
                 text = {
-                    "{C:attention}Lucky Cards{} give",
-                    "{C:money}$#1#{} when they do not",
-                    "trigger their ability",
+                    "Gain {C:money}$#1#{} when",
+                    "any probability {C:attention}fails{}",
                 }
             },
 
@@ -176,8 +178,6 @@ return {
                     "{C:inactive}(Currently: {X:mult,C:white}X#2#{} {C:inactive}Mult)"
                 } }
             },
-<<<<<<< Updated upstream
-=======
 
             j_artb_origami = {
                 name = 'Origami',
@@ -209,7 +209,22 @@ return {
                 } }
             },
 
->>>>>>> Stashed changes
+            j_artb_lego_joker = {
+                name = 'Lego Joker',
+                text = { {
+                    "Applying a {C:attention}Brick Seal{}",
+                    "to a card that already",
+                    "has one {C:attention}stacks{} them",
+                    "{C:inactive}(Up to {C:attention}3{} {C:inactive}Seals stacked){}",
+                },
+                {
+                    "adds a {C:attention}Brick Seal Collectable{}",
+                    "when this Joker is obtained",
+                    "{C:inactive}(Must have room){}"
+                } }
+            },
+
+
         },
         collectable = {
             c_artb_joker_collectable = {
@@ -404,7 +419,7 @@ return {
                     "When this card is {C:attention}discarded{},",
                     "{C:green}#1# in #2#{} chance",
                     "to create an {C:attention}Art card{},",
-                    "{C:green}#1# in #3#{} chance",
+                    "{C:green}#3# in #4#{} chance",
                     "to create a {C:attention}Creative tag{}",
                 }
             },
