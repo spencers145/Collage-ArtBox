@@ -11,7 +11,7 @@ SMODS.Joker {
     perishable_compat = true,
 
     loc_vars = function(self, info_queue, card)
-      info_queue[#info_queue + 1] = { set = "Other", key = "artb_brick_seal", specific_vars = {} }
+      info_queue[#info_queue + 1] = { set = "Other", key = "artb_brick_seal", specific_vars = {1} }
     end,
 
     add_to_deck = function(self, card, from_debuff)

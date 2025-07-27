@@ -218,7 +218,7 @@ return {
                     "{C:inactive}(Up to {C:attention}3{} {C:inactive}Seals stacked){}",
                 },
                 {
-                    "adds a {C:attention}Brick Seal Collectable{}",
+                    "Adds a {C:attention}Brick Seal Collectable{}",
                     "when this Joker is obtained",
                     "{C:inactive}(Must have room){}"
                 } }
@@ -508,7 +508,7 @@ return {
                 name = 'Brick Seal',
                 text = {
                     'This card gains',
-                    '{C:mult}+1{} extra Mult',
+                    '{C:mult}+#1#{} extra Mult',
                     'when scored'
                 }
             },
