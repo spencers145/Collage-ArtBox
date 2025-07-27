@@ -176,6 +176,40 @@ return {
                     "{C:inactive}(Currently: {X:mult,C:white}X#2#{} {C:inactive}Mult)"
                 } }
             },
+<<<<<<< Updated upstream
+=======
+
+            j_artb_origami = {
+                name = 'Origami',
+                text = { {
+                    "Create an {C:attention}Art{} card",
+                    "When {C:attention}Blind{} is selected",
+                    "{C:inactive}(Must have room){}"
+                } }
+            },
+
+            j_artb_clownfish = {
+                name = 'Clownfish',
+                text = { {
+                    "{X:mult,C:white}X#2#{} Mult",
+                    "when round ends",
+                    "dies if no cards",
+                    "were sold this round",
+                    "{C:inactive}(Currently: #1#){}"
+                } }
+            },
+
+            j_artb_energy_drink = {
+                name = 'Energy Drink',
+                text = { {
+                    "Retriggers {C:attention}Joker{}",
+                    "to the right",
+                    "Consumed after",
+                    "{C:attention}#2#{} round(s)"
+                } }
+            },
+
+>>>>>>> Stashed changes
         },
         collectable = {
             c_artb_joker_collectable = {
@@ -434,6 +468,15 @@ return {
                     "{C:attention,T:v_artb_pen_holder}#1#{} voucher",
                     "and a random {C:attention}enhancement{},",
                     "{C:attention}seal{} and {C:attention}edition{} Collectable"
+                }
+            },
+
+            b_artb_box = {
+                name = "Box Deck",
+                text = {
+                    "Start run with the",
+                    "{C:attention,T:v_artb_booster_stack}#1#{} voucher",
+                    "and a {C:attention,T:c_artb_joker_collectable}#2#{},"
                 }
             },
         },
