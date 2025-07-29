@@ -2,7 +2,7 @@ SMODS.Seal {
     key = "ouroboros",
     badge_colour = HEX("828282"),
     atlas = "seal_atlas",
-    pos = {x= 2, y= 0},
+    pos = {x= 4, y= 0},
     discovered = true,
 
     calculate = function(self, card, context)

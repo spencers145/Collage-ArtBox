@@ -13,6 +13,10 @@ SMODS.Joker {
             added_value = 2,
         }
     },
+    pools = {
+    Food = true
+    },
+
     loc_vars = function(self, info_queue, card)
         local sell_cost = 0
         for _, joker in ipairs(G.jokers and G.jokers.cards or {}) do

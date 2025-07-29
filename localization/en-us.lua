@@ -199,6 +199,41 @@ return {
                 } }
             },
 
+            j_artb_energy_drink = {
+                name = 'Energy Drink',
+                text = { {
+                    "Retriggers {C:attention}Joker{}",
+                    "to the right",
+                    "Consumed after",
+                    "{C:attention}#2#{} round(s)"
+                } }
+            },
+
+            j_artb_lego_joker = {
+                name = 'Lego Joker',
+                text = { {
+                    "Applying a {C:attention}Brick Seal{}",
+                    "to a card that already",
+                    "has one {C:attention}stacks{} them",
+                    "{C:inactive}(Up to {C:attention}3{} {C:inactive}Seals stacked){}",
+                },
+                {
+                    "Adds a {C:attention}Brick Seal Collectable{}",
+                    "when this Joker is obtained",
+                    "{C:inactive}(Must have room){}"
+                } }
+            },
+
+            j_artb_ascii = {
+                name = 'Ascii',
+                text = { {
+                    "Each card in hand gives",
+                    "{C:mult}+#1#{} Mult for its and every",
+                    "unique rank to the left"
+                }}
+            },
+
+
         },
         collectable = {
             c_artb_joker_collectable = {
@@ -459,6 +494,15 @@ return {
                     "{C:attention}seal{} and {C:attention}edition{} Collectable"
                 }
             },
+
+            b_artb_box = {
+                name = "Box Deck",
+                text = {
+                    "Start run with the",
+                    "{C:attention,T:v_artb_booster_stack}#1#{} voucher",
+                    "and a {C:attention,T:c_artb_joker_collectable}#2#{},"
+                }
+            },
         },
         Other = {
             artb_ouroboros_seal = {
@@ -473,7 +517,7 @@ return {
                 name = 'Brick Seal',
                 text = {
                     'This card gains',
-                    '{C:mult}+1{} extra Mult',
+                    '{C:mult}+#1#{} extra Mult',
                     'when scored'
                 }
             },

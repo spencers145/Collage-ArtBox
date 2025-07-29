@@ -39,3 +39,26 @@
         
     end
   }
+
+  SMODS.Back {
+    key = 'box',
+    atlas = 'enhancers_atlas',
+    pos = { x = 4, y = 0 },
+    config = {
+      vouchers = {
+        'v_artb_booster_stack'
+      },
+      consumables = {
+        'c_artb_joker_collectable'
+      }
+    },
+
+    loc_vars = function(self, info_queue)
+      return {
+        vars = {
+          localize { type = 'name_text', key = 'v_artb_booster_stack', set = 'Voucher' },
+          localize { type = 'name_text', key = 'c_artb_joker_collectable', set = 'collectable' },
+        }
+      }
+    end
+  }
