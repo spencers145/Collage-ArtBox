@@ -33,9 +33,11 @@ SMODS.Consumable ({
 
 	  if(left.seal and not right.seal)then
 			G.hand.highlighted[2].seal=G.hand.highlighted[1].seal
+			G.hand.highlighted[2].ability.seal=G.hand.highlighted[1].ability.seal
 	  else
 		if(right.seal and not left.seal)then
 			G.hand.highlighted[1].seal=G.hand.highlighted[2].seal
+			G.hand.highlighted[1].ability.seal=G.hand.highlighted[2].ability.seal
 		end
 	  end
 

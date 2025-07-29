@@ -26,7 +26,7 @@ SMODS.Seal({
   draw = function(self, card, layer)
     if (layer == 'card' or layer == 'both') and card.seal and card.seal == 'artb_brick' then
       local sprite_key = 'artb_brick'
-      if card.ability.seal.mult_mod > 1 then
+      if card.ability.seal and card.ability.seal.mult_mod > 1 then
         sprite_key = 'artb_brick_' .. card.ability.seal.mult_mod
       end
       if not G.shared_seals[sprite_key] then
