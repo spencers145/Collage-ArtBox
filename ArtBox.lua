@@ -1,6 +1,79 @@
 ArtBox = SMODS.current_mod
 ArtBox_config = ArtBox.config
 
+--#region Colors
+
+ArtBox.C = {
+    ARTB_PRIMARY = HEX('be5e6e'),
+    ARTB_SECONDARY = HEX('86d4c9'),
+}
+
+--#endregion
+
+--#region Menu
+
+local oldfunc = Game.main_menu
+Game.main_menu = function(change_context)
+    local ret = oldfunc(change_context)
+
+    if ArtBox_config.menu then
+        -- adds a Blend to the main menu
+        local newcard = Card(
+			G.title_top.T.x,
+			G.title_top.T.y,
+			G.CARD_W,
+			G.CARD_H,
+			G.P_CARDS.empty,
+			G.P_CENTERS['c_artb_art_blend'],
+			{ bypass_discovery_center = true }
+		)
+
+        -- recenter the title
+        G.title_top.T.w = G.title_top.T.w * 1.7675
+        G.title_top.T.x = G.title_top.T.x - 0.8
+        G.title_top:emplace(newcard)
+
+        -- make the card look the same way as the title screen Ace of Spades
+        newcard.T.w = newcard.T.w * 1.1 * 1.2
+        newcard.T.h = newcard.T.h * 1.1 * 1.2
+        newcard.no_ui = true
+		newcard.states.visible = false
+
+        -- make the title screen use different background colors
+        G.SPLASH_BACK:define_draw_steps({ {
+            shader = 'splash',
+            send = {
+                { name = 'time',       ref_table = G.TIMERS,  ref_value = 'REAL_SHADER' },
+                { name = 'vort_speed', val = 0.4 },
+                { name = 'colour_1',   ref_table = ArtBox.C, ref_value = 'ARTB_PRIMARY' },
+                { name = 'colour_2',   ref_table = ArtBox.C, ref_value = 'ARTB_SECONDARY' },
+            }
+        } })
+
+        -- materialize blend card
+		G.E_MANAGER:add_event(Event({
+			trigger = "after",
+			delay = 0,
+			blockable = false,
+			blocking = false,
+			func = function()
+				if change_context == "splash" then
+					newcard.states.visible = true
+					newcard:start_materialize({ G.C.WHITE, ArtBox.C.ARTB_SECONDARY }, true, 2.5)
+				else
+					newcard.states.visible = true
+					newcard:start_materialize({ G.C.WHITE, ArtBox.C.ARTB_SECONDARY }, nil, 1.2)
+				end
+				return true
+			end,
+		}))
+    end
+
+    return ret
+end
+
+--#endregion
+
 --#region Atlases
 SMODS.Atlas {
     key = 'modicon',
@@ -99,6 +172,28 @@ ArtBox.config_tab = function()
                         config = { align = "c", padding = 0 },
                         nodes = {
                             { n = G.UIT.T, config = { text = localize('artb_collectable_shine'), scale = 0.45, colour = G.C.UI.TEXT_LIGHT } },
+                        }
+                    },
+                }
+            },
+
+            -- Menu Toggle
+            {
+                n = G.UIT.R,
+                config = { align = "cl", padding = 0 },
+                nodes = {
+                    {
+                        n = G.UIT.C,
+                        config = { align = "cl", padding = 0.05 },
+                        nodes = {
+                            create_toggle { col = true, label = "", scale = 1, w = 0, shadow = true, ref_table = ArtBox_config, ref_value = "menu" },
+                        }
+                    },
+                    {
+                        n = G.UIT.C,
+                        config = { align = "c", padding = 0 },
+                        nodes = {
+                            { n = G.UIT.T, config = { text = localize('artb_menu'), scale = 0.45, colour = G.C.UI.TEXT_LIGHT } },
                         }
                     },
                 }

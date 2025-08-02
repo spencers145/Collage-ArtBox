@@ -14,6 +14,7 @@ return {
             artb_hungry="Hungry",
             artb_fed="Fed",
             artb_starved="Starved :(",
+            artb_menu="Enable Custom Menu",
         },
         labels = {
             artb_ouroboros_seal = "Ouroboros Seal",

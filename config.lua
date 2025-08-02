@@ -1,3 +1,4 @@
 return {
-    collectable_shine = false
+    collectable_shine = false,
+    menu = true
 }
