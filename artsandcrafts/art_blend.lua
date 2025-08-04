@@ -33,17 +33,21 @@ SMODS.Consumable ({
 
 	  if(left.seal and not right.seal)then
 			G.hand.highlighted[2].seal=G.hand.highlighted[1].seal
+			G.hand.highlighted[2].ability.seal=G.hand.highlighted[1].ability.seal
 	  else
 		if(right.seal and not left.seal)then
 			G.hand.highlighted[1].seal=G.hand.highlighted[2].seal
+			G.hand.highlighted[1].ability.seal=G.hand.highlighted[2].ability.seal
 		end
 	  end
 
 	  if(left.config.center ~= G.P_CENTERS.c_base and  right.config.center == G.P_CENTERS.c_base)then
 			G.hand.highlighted[2]:set_ability(G.hand.highlighted[1].config.center.key)
+			G.hand.highlighted[2].ability.extra=G.hand.highlighted[1].ability.extra
 	  else
 		if(right.config.center ~= G.P_CENTERS.c_base and  left.config.center == G.P_CENTERS.c_base)then
 			G.hand.highlighted[1]:set_ability(G.hand.highlighted[2].config.center.key)
+			G.hand.highlighted[1].ability.extra=G.hand.highlighted[2].ability.extra
 		end
 	  end
 	  return true end }))

@@ -137,7 +137,7 @@ SMODS.Voucher({
 			}))
 		end
 
-		if next(SMODS.get_enhancements(val)) then
+		if val.config.center.key ~= 'c_base' then
 			G.E_MANAGER:add_event(Event({
 				func = function()
 					local collectable = ArtBox.create_collectable(val.config.center.key)
