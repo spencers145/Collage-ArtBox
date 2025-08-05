@@ -10,8 +10,7 @@ SMODS.Consumable {
 	discovered = true,
 	config ={},
     loc_vars = function(self, info_queue, card)
-		info_queue[#info_queue + 1] =
-		{ set = "Other", key = "artb_brick_seal", specific_vars = {} }
+		info_queue[#info_queue + 1] = G.P_SEALS['artb_brick']
 		return {
 			vars = { card.ability.max_highlighted }
 		}
