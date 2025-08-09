@@ -13,7 +13,7 @@ SMODS.Joker {
     unlocked = true,
     discovered = true,
     blueprint_compat = false,
-    eternal_compat = true,
+    eternal_compat = false,
     perishable_compat = true,
 
     loc_vars = function(self, info_queue, card)
@@ -27,7 +27,7 @@ SMODS.Joker {
 
     calculate = function(self, card, context)
 
-        if context.end_of_round and context.cardarea == G.jokers and not context.blueprint then
+        if context.end_of_round and context.cardarea == G.jokers and not context.blueprint and not context.retrigger_joker then
           if card.ability.extra.fed=="fed" then
             card.ability.extra.fed="hungry"
             return {

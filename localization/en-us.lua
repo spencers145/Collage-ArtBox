@@ -233,6 +233,19 @@ return {
                 }}
             },
 
+            j_artb_gold_plating = {
+                name = 'Gold Plating',
+                text = {{
+                    "Gains {C:money}$#1#{} of {C:attention}sell value{}",
+                    "at end of round"
+                },
+                {
+                    "Sell this Joker",
+                    "to give its {C:attention}sell value{}",
+                    "to a Joker to the right"
+                }}
+            }
+
 
         },
         collectable = {

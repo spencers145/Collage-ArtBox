@@ -25,6 +25,10 @@ SMODS.Joker {
         }
     end,
 
+    pools = {
+    Food = true
+    },
+
     calculate = function(self, card, context)
       if context.retrigger_joker_check then
         for v, joker in ipairs(G.jokers.cards) do
