@@ -87,26 +87,11 @@ SMODS.DrawStep {
   conditions = { vortex = false, facing = 'front' },
 }
 
--- Main front drawstep
-SMODS.DrawStep {
-    key = 'Stained_Front',
-    order = 1,
-    func = function(self, layer)
-        --Draw the main part of the card
-        if (self.edition and self.edition.negative and not self.delay_edition) or (self.ability.name == 'Antimatter' and (self.config.center.discovered or self.bypass_discovery_center)) then
-            if self.children.front and SMODS.has_enhancement(self, 'm_artb_stained') then
-                self.children.front:draw_shader('negative', nil, self.ARGS.send_to_shader)
-            end
-        elseif not self:should_draw_base_shader() then
-            -- Don't render base dissolve shader.
-        elseif not self.greyed then
-            if self.children.front and SMODS.has_enhancement(self, 'm_artb_stained') then
-                self.children.front:draw_shader('dissolve')
-            end
-        end
-    end,
-    conditions = { vortex = false, facing = 'front' },
-}
+local shf = Card.should_hide_front
+function Card:should_hide_front()
+  if SMODS.has_enhancement(self, 'm_artb_stained') then return false end
+  return shf(self)
+end
 
 -- Edition drawstep
 SMODS.DrawStep {

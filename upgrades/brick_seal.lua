@@ -1,8 +1,6 @@
 SMODS.Seal({
   key = "brick",
   badge_colour = HEX("cf3e36"),
-  atlas = "seal_atlas",
-  pos = { x = 0, y = 0 },
   discovered = true,
   config = {
     mult_mod = 1,
@@ -26,15 +24,17 @@ SMODS.Seal({
   draw = function(self, card, layer)
     if (layer == 'card' or layer == 'both') and card.seal and card.seal == 'artb_brick' then
       local sprite_key = 'artb_brick'
-      if card.ability.seal and card.ability.seal.mult_mod > 1 then
-        sprite_key = 'artb_brick_' .. card.ability.seal.mult_mod
+      local index
+      if card.ability.seal and card.ability.seal.mult_mod then
+        index = card.ability.seal.mult_mod > 3 and 3 or math.floor(card.ability.seal.mult_mod)
+        sprite_key = 'artb_brick_' .. index
+        if not G.shared_seals[sprite_key] then
+          G.shared_seals[sprite_key] = Sprite(0, 0, G.CARD_W, G.CARD_H, G.ASSET_ATLAS["artb_seal_atlas"],
+            { x = index - 1, y = 0 })
+        end
+        G.shared_seals[sprite_key].role.draw_major = card
+        G.shared_seals[sprite_key]:draw_shader('dissolve', nil, nil, nil, card.children.center)
       end
-      if not G.shared_seals[sprite_key] then
-        G.shared_seals[sprite_key] = Sprite(0, 0, G.CARD_W, G.CARD_H, G.ASSET_ATLAS["artb_seal_atlas"],
-          { x = card.ability.seal.mult_mod - 1, y = 0 })
-      end
-      G.shared_seals[sprite_key].role.draw_major = card
-      G.shared_seals[sprite_key]:draw_shader('dissolve', nil, nil, nil, card.children.center)
     end
   end
 })
