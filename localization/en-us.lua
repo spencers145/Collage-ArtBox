@@ -11,15 +11,24 @@ return {
             artb_plus_tag = "+1 Tag",
             artb_wood = "Wood!",
             artb_wild = "Wild",
-            artb_hungry = "Hungry",
-            artb_fed = "Fed",
-            artb_starved = "Starved :(",
-            artb_menu = "Enable Custom Menu",
+            artb_hungry="Hungry",
+            artb_fed="Fed",
+            artb_starved="Starved :(",
+            artb_protoplanet="Protoplanet",
+            artb_stolen="Stolen!",
+            artb_null_hand_toggle = "Toggle Null Hand",
+            artb_menu = "Toggle Custom Menu"
         },
         labels = {
             artb_ouroboros_seal = "Ouroboros Seal",
             artb_brick_seal = "Brick Seal",
             artb_button_seal = "Button Seal",
+        },
+        poker_hand_descriptions={
+            ["artb_null"] = {'5 Rankless Cards'},
+        },
+        poker_hands={
+            ["artb_null"] = "Null",
         },
     },
     descriptions = {
@@ -68,11 +77,11 @@ return {
                     "{C:clubs}Club{} suit give",
                     "{C:mult}+#2#{} Mult when scored",
                 },
-                    {
-                        "Played cards with",
-                        "{C:spades}Spade{} suit give",
-                        "{C:chips}+#1#{} Chips when scored",
-                    } }
+                {
+                    "Played cards with",
+                    "{C:spades}Spade{} suit give",
+                    "{C:chips}+#1#{} Chips when scored",
+                } }
             },
 
             j_artb_clawmachine = {
@@ -157,11 +166,11 @@ return {
                     "in the same hand,",
                     "destroy all {C:attention}9{}s",
                 },
-                    {
-                        "Scored {C:attention}7{}s give {C:mult}+#2#{} Mult for",
-                        "each {C:attention}9{} destroyed by this card",
-                        "{C:inactive}(Currently: {C:mult}+#1#{} {C:inactive}Mult)"
-                    } }
+                {
+                    "Scored {C:attention}7{}s give {C:mult}+#2#{} Mult for",
+                    "each {C:attention}9{} destroyed by this card",
+                    "{C:inactive}(Currently: {C:mult}+#1#{} {C:inactive}Mult)"
+                } }
             },
 
             j_artb_collector = {
@@ -172,12 +181,12 @@ return {
                     "to a {C:attention}Joker{} or {C:attention}Consumable{}",
                     "to the right",
                 },
-                    {
-                        "Gives {X:mult,C:white}X#1#{} Mult times",
-                        "total {C:attention}sell value{} of all owned",
-                        "{C:attention}Jokers{} and {C:attention}Consumables{}",
-                        "{C:inactive}(Currently: {X:mult,C:white}X#2#{} {C:inactive}Mult)"
-                    } }
+                {
+                    "Gives {X:mult,C:white}X#1#{} Mult times",
+                    "total {C:attention}sell value{} of all owned",
+                    "{C:attention}Jokers{} and {C:attention}Consumables{}",
+                    "{C:inactive}(Currently: {X:mult,C:white}X#2#{} {C:inactive}Mult)"
+                } }
             },
 
             j_artb_origami = {
@@ -218,11 +227,11 @@ return {
                     "has one {C:attention}stacks{} them",
                     "{C:inactive}(Up to {C:attention}3{} {C:inactive}Seals stacked){}",
                 },
-                    {
-                        "Adds a {C:attention}Brick Seal Collectable{}",
-                        "when this Joker is obtained",
-                        "{C:inactive}(Must have room){}"
-                    } }
+                {
+                    "Adds a {C:attention}Brick Seal Collectable{}",
+                    "when this Joker is obtained",
+                    "{C:inactive}(Must have room){}"
+                } }
             },
 
             j_artb_ascii = {
@@ -231,7 +240,7 @@ return {
                     "Each card in hand gives",
                     "{C:mult}+#1#{} Mult for its and every",
                     "unique rank to the left"
-                } }
+                }}
             },
 
             j_artb_gold_plating = {
@@ -245,7 +254,48 @@ return {
                     "to give its {C:attention}sell value{}",
                     "to a Joker to the right"
                 }}
-            }
+            },
+
+            j_artb_stained_glass = {
+                name = 'Stained Glass',
+                text = {{
+                    "{C:attention}Glass Cards{} create an",
+                    "{C:attention}Art card{} when scored, and a",
+                    "{C:attention}Creative Tag{} when shattered"
+                }}
+            },
+
+            j_artb_paint_chips = {
+                name = 'Paint Chips',
+                text = {{
+                    "{X:chips,C:white}X#2#{} Chips",
+                    "{X:mult,C:white}X#1#{} Mult",
+                }}
+            },
+
+            j_artb_heist = {
+                name = 'Heist',
+                text = {{
+                    "When {C:attention}Blind{} is selected,",
+                    "steals {C:attention}sell value{} of",
+                    "the Joker to the right"
+                },
+                {
+                    "gives Mult equal to three",
+                    "times this Jokers {C:attention}sell value{}",
+                    "{C:inactive}(Currently: {C:mult}+#1#{} {C:inactive}Mult)"
+                }}
+            },
+
+            j_artb_null_pointer = {
+                name = 'Null Pointer',
+                text = {{
+                    "Fills all empty consumable",
+                    "slots with random rankless",
+                    "{C:attention}Collectable enhancements{}",
+                    "when {C:attention}obtained{} or {C:attention}sold{}"
+                }}
+            },
 
 
         },
@@ -287,6 +337,27 @@ return {
                     "{C:attention}1{} selected playing card",
                 }
             },
+            c_artb_gros_michel_collectable = {
+                name = 'Gros Michel Collectable',
+                text = {
+                    "{C:mult}+#1#{} Mult",
+                    "If you already have",
+                    "a {C:attention}Gros Michel Collectable{}",
+                    "destroys this and gives",
+                    "the other one {C:mult}+#2#{} Mult"
+                }
+            },
+            c_artb_cavendish_collectable = {
+                name = 'Cavendish Collectable',
+                text = {
+                    "{X:mult,C:white}X#1#{} Mult",
+                    "If you already have",
+                    "a {C:attention}Cavendish Collectable{}",
+                    "destroys this and gives",
+                    "the other one {X:mult,C:white}X#2#{} Mult"
+                }
+            },
+
         },
         Tag = {
             tag_artb_creative = {
@@ -394,7 +465,7 @@ return {
                     'playing card and',
                     'creates Collectables of its',
                     '{C:attention}Edition{}, {C:attention}Seal{} and {C:attention}Enhancement{}',
-                    '{C:inactive}(Must have room)'
+                    '{C:inactive}(Must have room){}'
                 }
             },
 
@@ -414,6 +485,27 @@ return {
                     "selected playing card to",
                     "{C:attention}Marble Card{}",
                 }
+            },
+
+            c_artb_art_still_life = {
+                name = 'Still Life',
+                text = {
+                    "creates a",
+                    "{C:attention}Gros Michel Collectable{}",
+                    "{C:inactive}(Must have room, or another{}",
+                    "{C:inactive}Gros Michel Collectable already){}"
+                }
+            }
+        },
+        Planet={
+            c_artb_vesta={
+                name="Vesta",
+                text={
+                    "{S:0.8}({S:0.8,V:1}lvl.#1#{S:0.8}){} Level up",
+                    "{C:attention}Null",
+                    "{C:mult}+3{} Mult and",
+                    "{C:chips}+40{} chips",
+                },
             },
         },
         Spectral = {
