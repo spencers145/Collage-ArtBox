@@ -5,9 +5,9 @@ SMODS.Consumable ({
 	set = 'art',
 	name = 'Carving',
 	pos = { x = 0, y = 2 },
-	cost = 4,
+	cost = 3,
 	unlocked = true,
-	discovered = true,
+	discovered = false,
 	config = {mod_conv = "m_artb_marble", max_highlighted = 1},
     effect = 'Enhance',
     loc_vars = function(self, info_queue)

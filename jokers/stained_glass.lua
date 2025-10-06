@@ -1,4 +1,4 @@
-SMODS.Joker {
+--[[SMODS.Joker {
     key = "stained_glass",
     config = {
       mod_conv = "m_glass",
@@ -62,4 +62,4 @@ SMODS.Joker {
         end
         
     end
-}
+}]]

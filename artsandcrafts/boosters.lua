@@ -3,24 +3,35 @@ SMODS.Booster {
     atlas = 'boosters_atlas',
     pos =  { x = 0, y = 0 },
     key = 'arts_crafts_small_1',
-    unlocked = true,
-	discovered = true,
+	discovered = false,
     group_key = "artb_arts_crafts_pack",
     kind = "Arts and Crafts",
 
     loc_vars = function(self, info_queue, card)
         return { vars = { card.ability.choose, card.ability.extra } }
     end,
-    config = { extra = 2, choose = 1},
+    config = { extra = 3, choose = 1},
 
     create_card = function(self, card)
-        local card = create_card('art',G.consumeables,false, nil, true, true, nil, 'art')
+        local card = create_card('art', G.consumeables, false, nil, true, true, nil, 'art')
+        --[[if card.config.center.key ~= 'c_artb_art_blend' and
+        card.config.center.key ~= 'c_artb_art_glitter' and
+        card.config.center.key ~= 'c_artb_art_swatch' and -- this algorithm biases the art card pool toward these 7 cards
+        card.config.center.key ~= 'c_artb_art_scissors' and -- in general, this biases away from the 6 enhancements/seals
+        card.config.center.key ~= 'c_artb_art_imitation' and
+        card.config.center.key ~= 'c_artb_art_auction' and
+        card.config.center.key ~= 'c_artb_art_appraisal' and
+        card.config.center.key ~= 'c_artb_art_blank' and
+        SMODS.pseudorandom_probability(card, pseudoseed('bias_art_cards'), 1, 2, 'bias_art_cards', true)
+        then
+            card:remove()
+            card = create_card('art', G.consumeables, false, nil, true, true, nil, 'art')
+        end]]
         return card
     end,
 
     draw_hand = true,
    
-
     particles = function(self)
         G.booster_pack_sparkles = Particles(1, 1, 0,0, {
             timer = 0.020,
@@ -39,7 +50,7 @@ SMODS.Booster {
         ease_background_colour{new_colour = HEX("a4455d"), special_colour = HEX("be5e6e"), contrast = 2}
     end,
 
-    weight = 2,
+    weight = 1.5,
 
     cost = 4,
 
@@ -47,22 +58,33 @@ SMODS.Booster {
 }
 
 SMODS.Booster {
-    
     atlas = 'boosters_atlas',
     pos =  { x = 1, y = 0 },
     key = 'arts_crafts_small_2',
-    unlocked = true,
-	discovered = true,
+    discovered = false,
     group_key = "artb_arts_crafts_pack",
     kind = "Arts and Crafts",
 
     loc_vars = function(self, info_queue, card)
         return { vars = { card.ability.choose, card.ability.extra } }
     end,
-    config = { extra = 2, choose = 1},
+    config = { extra = 3, choose = 1},
 
     create_card = function(self, card)
-        local card = create_card('art',G.consumeables,false, nil, true, true, nil, 'art')
+        local card = create_card('art', G.consumeables, false, nil, true, true, nil, 'art')
+        --[[if card.config.center.key ~= 'c_artb_art_blend' and
+        card.config.center.key ~= 'c_artb_art_glitter' and
+        card.config.center.key ~= 'c_artb_art_swatch' and -- this algorithm biases the art card pool toward these 7 cards
+        card.config.center.key ~= 'c_artb_art_scissors' and -- in general, this biases away from the 6 enhancements/seals
+        card.config.center.key ~= 'c_artb_art_imitation' and
+        card.config.center.key ~= 'c_artb_art_auction' and
+        card.config.center.key ~= 'c_artb_art_appraisal' and
+        card.config.center.key ~= 'c_artb_art_blank' and
+        SMODS.pseudorandom_probability(card, pseudoseed('bias_art_cards'), 1, 2, 'bias_art_cards', true)
+        then
+            card:remove()
+            card = create_card('art', G.consumeables, false, nil, true, true, nil, 'art')
+        end]]
         return card
     end,
 
@@ -87,7 +109,7 @@ SMODS.Booster {
         ease_background_colour{new_colour = HEX("a4455d"), special_colour = HEX("be5e6e"), contrast = 2}
     end,
 
-    weight = 2,
+    weight = 1.5,
 
     cost = 4,
 
@@ -95,22 +117,33 @@ SMODS.Booster {
 }
 
 SMODS.Booster {
-    
     atlas = 'boosters_atlas',
     pos =  { x = 0, y = 1 },
     key = 'arts_crafts_jumbo',
-    unlocked = true,
-	discovered = true,
+    discovered = false,
     group_key = "artb_arts_crafts_pack",
     kind = "Arts and Crafts",
 
     loc_vars = function(self, info_queue, card)
         return { vars = { card.ability.choose, card.ability.extra } }
     end,
-    config = { extra = 4, choose = 1},
+    config = { extra = 5, choose = 1},
 
     create_card = function(self, card)
-        local card = create_card('art',G.consumeables,false, nil, true, true, nil, 'art')
+        local card = create_card('art', G.consumeables, false, nil, true, true, nil, 'art')
+        --[[if card.config.center.key ~= 'c_artb_art_blend' and
+        card.config.center.key ~= 'c_artb_art_glitter' and
+        card.config.center.key ~= 'c_artb_art_swatch' and -- this algorithm biases the art card pool toward these 7 cards
+        card.config.center.key ~= 'c_artb_art_scissors' and -- in general, this biases away from the 6 enhancements/seals
+        card.config.center.key ~= 'c_artb_art_imitation' and
+        card.config.center.key ~= 'c_artb_art_auction' and
+        card.config.center.key ~= 'c_artb_art_appraisal' and
+        card.config.center.key ~= 'c_artb_art_blank' and
+        SMODS.pseudorandom_probability(card, pseudoseed('bias_art_cards'), 1, 2, 'bias_art_cards', true)
+        then
+            card:remove()
+            card = create_card('art', G.consumeables, false, nil, true, true, nil, 'art')
+        end]]
         return card
     end,
 
@@ -135,7 +168,7 @@ SMODS.Booster {
         ease_background_colour{new_colour = HEX("a4455d"), special_colour = HEX("be5e6e"), contrast = 2}
     end,
 
-    weight = 2,
+    weight = 1.5,
 
     cost = 6,
 
@@ -143,22 +176,33 @@ SMODS.Booster {
 }
 
 SMODS.Booster {
-    
     atlas = 'boosters_atlas',
     pos =  { x = 1, y = 1 },
     key = 'arts_crafts_mega',
-    unlocked = true,
-	discovered = true,
+    discovered = false,
     group_key = "artb_arts_crafts_pack",
     kind = "Arts and Crafts",
 
     loc_vars = function(self, info_queue, card)
         return { vars = { card.ability.choose, card.ability.extra } }
     end,
-    config = { extra = 4, choose = 2},
+    config = { extra = 5, choose = 2},
 
     create_card = function(self, card)
-        local card = create_card('art',G.consumeables,false, nil, true, true, nil, 'art')
+        local card = create_card('art', G.consumeables, false, nil, true, true, nil, 'art')
+        --[[if card.config.center.key ~= 'c_artb_art_blend' and
+        card.config.center.key ~= 'c_artb_art_glitter' and
+        card.config.center.key ~= 'c_artb_art_swatch' and -- this algorithm biases the art card pool toward these 7 cards
+        card.config.center.key ~= 'c_artb_art_scissors' and -- in general, this biases away from the 6 enhancements/seals
+        card.config.center.key ~= 'c_artb_art_imitation' and
+        card.config.center.key ~= 'c_artb_art_auction' and
+        card.config.center.key ~= 'c_artb_art_appraisal' and
+        card.config.center.key ~= 'c_artb_art_blank' and
+        SMODS.pseudorandom_probability(card, pseudoseed('bias_art_cards'), 1, 2, 'bias_art_cards', true)
+        then
+            card:remove()
+            card = create_card('art', G.consumeables, false, nil, true, true, nil, 'art')
+        end]]
         return card
     end,
 
@@ -183,7 +227,7 @@ SMODS.Booster {
         ease_background_colour{new_colour = HEX("a4455d"), special_colour = HEX("be5e6e"), contrast = 2}
     end,
 
-    weight = 2,
+    weight = 0.75,
 
     cost = 8,
 

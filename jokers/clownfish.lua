@@ -11,15 +11,15 @@ SMODS.Joker {
     atlas = 'joker_atlas',
     cost = 4,
     unlocked = true,
-    discovered = true,
+    discovered = false,
     blueprint_compat = false,
     eternal_compat = false,
     perishable_compat = true,
 
     loc_vars = function(self, info_queue, card)
         return {
+          key = card.ability.extra.fed=="fed" and 'j_artb_clownfish_fed' or 'j_artb_clownfish',
           vars = {
-            card.ability.extra.fed,
             card.ability.extra.x_mult
           }
         }

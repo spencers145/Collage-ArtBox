@@ -7,7 +7,7 @@ SMODS.Joker {
     atlas = 'joker_atlas',
     config = { extra = { price = 1 } },
     perishable_compat = false,
-    discovered = true,
+    discovered = false,
     loc_vars = function(self, info_queue, card)
         return { vars = { card.ability.extra.price } }
     end,

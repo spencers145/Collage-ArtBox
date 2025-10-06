@@ -3,7 +3,7 @@ SMODS.Seal {
     badge_colour = HEX("4f6367"),
     atlas = "seal_atlas",
     pos = {x= 3, y= 0},
-    discovered = true,
+    discovered = false,
 
     calculate = function(self, card, context)
 

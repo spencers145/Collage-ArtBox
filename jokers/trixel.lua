@@ -1,6 +1,6 @@
 SMODS.Joker {
     key = "trixel",
-    rarity = 1,
+    rarity = 2,
     pos = { x = 1, y = 4},
     atlas = 'joker_atlas',
     config = {
@@ -9,9 +9,9 @@ SMODS.Joker {
         mult = 0,
       }
     },
-    cost = 5,
+    cost = 6,
     unlocked = true,
-    discovered = true,
+    discovered = false,
     blueprint_compat = true,
     eternal_compat = true,
     perishable_compat = false,

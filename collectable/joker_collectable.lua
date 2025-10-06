@@ -4,16 +4,16 @@ SMODS.Consumable({
     atlas = 'collectable_atlas',
     pos = {x=2, y=0},
     soul_pos = {x=2, y=1},
-    discovered = true,
+    discovered = false,
     config = {
        extra = { 
-        added_value = 4,
+        added_value = 5,
       } 
       },
     keep_on_use = function(self, card)
         return false
     end,
-    cost = 8,
+    cost = 10,
     can_use = function(self, card)
 		return false
 	end,

@@ -1,4 +1,4 @@
-SMODS.Challenge {
+--[[SMODS.Challenge {
     key = 'randomizer',
     loc_txt = {
 		name = 'Randomizer',
@@ -7,3 +7,4 @@ SMODS.Challenge {
         { id = 'j_artb_random', pinned = true, eternal = true },
     }
 }
+]]

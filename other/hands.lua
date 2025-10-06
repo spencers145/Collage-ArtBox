@@ -1,15 +1,15 @@
 SMODS.PokerHand {
   key = 'null',
   visible = false,
-  chips = 130,
-  mult = 13,
-  l_chips = 40,
-  l_mult = 3,
+  chips = 40,
+  mult = 2,
+  l_chips = 20,
+  l_mult = 1,
   example = {
     { "S_A", true, enhancement = "m_stone" },
     { "S_A", true, enhancement = "m_stone" },
     { "S_A", true, enhancement = "m_artb_marble" },
-    { "S_A", true, enhancement = "m_artb_stained" },
+    { "H_9", true, enhancement = "m_artb_stained" },
     { "S_A", true, enhancement = "m_artb_marble" },
   },
   evaluate = function(parts, hand)

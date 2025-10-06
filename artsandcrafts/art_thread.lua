@@ -5,10 +5,10 @@ SMODS.Consumable {
 	set = 'art',
 	name = 'Thread',
 	pos = { x = 3, y = 1 },
-	cost = 4,
+	cost = 3,
 	unlocked = true,
-	discovered = true,
-	config ={},
+	discovered = false,
+	config = {},
     loc_vars = function(self, info_queue, card)
 		info_queue[#info_queue + 1] =
 		{ set = "Other", key = "artb_button_seal", specific_vars = {} }
@@ -48,7 +48,7 @@ SMODS.Consumable {
 		end
 	end,
 	can_use = function(self, card, area)
-		if G.hand and (#G.hand.highlighted == 1) and G.hand.highlighted[1] then
+		if G.hand and G.hand.highlighted[1] and (#G.hand.highlighted == 1 or (#G.hand.highlighted == 2 and G.hand.highlighted[2])) then
 			return true
 		else
 			return false

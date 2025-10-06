@@ -7,12 +7,11 @@ return {
             artb_wow = "WOW!",
             artb_miss = "Miss!",
             artb_arts_crafts_pack = "Arts & Crafts Pack",
-            artb_plus_art = "+1 Art",
+            artb_plus_art = "Supplies!",
             artb_plus_tag = "+1 Tag",
-            artb_wood = "Wood!",
             artb_wild = "Wild",
-            artb_hungry="Hungry",
-            artb_fed="Fed",
+            artb_hungry="Hungry!",
+            artb_fed="Fed!",
             artb_starved="Starved :(",
             artb_protoplanet="Protoplanet",
             artb_stolen="Stolen!",
@@ -63,25 +62,26 @@ return {
             j_artb_bat = {
                 name = 'Baseball Bat',
                 text = {
-                    "Each {C:attention}round{} first time",
-                    "you play a {C:attention}hand{} that",
-                    "has only one card,",
-                    "destroy it",
+                    "The first time each round",
+                    "a hand is played containing",
+                    "only {C:attention}one{} card, {C:red}destroy{} it",
                 }
             },
 
             j_artb_rubberhose = {
                 name = 'Rubber Hose',
-                text = { {
-                    "Played cards with",
-                    "{C:clubs}Club{} suit give",
-                    "{C:mult}+#2#{} Mult when scored",
-                },
-                {
-                    "Played cards with",
-                    "{C:spades}Spade{} suit give",
-                    "{C:chips}+#1#{} Chips when scored",
-                } }
+                text = {
+                    {
+                        "Played cards with",
+                        "{C:clubs}Club{} suit give",
+                        "{C:mult}+#2#{} Mult when scored",
+                    },
+                    {
+                        "Played cards with",
+                        "{C:spades}Spade{} suit give",
+                        "{C:chips}+#1#{} Chips when scored",
+                    }
+                }
             },
 
             j_artb_clawmachine = {
@@ -125,8 +125,8 @@ return {
                 name = 'Minimalism',
                 text = {
                     "Retrigger all scored cards",
-                    "if played hand has 3",
-                    "or less scored cards",
+                    "if played hand has {C:attention}3{}",
+			        "or less scored cards",
                 }
             },
 
@@ -193,30 +193,43 @@ return {
                 name = 'Origami',
                 text = { {
                     "Create an {C:attention}Art{} card",
-                    "When {C:attention}Blind{} is selected",
+                    "when {C:attention}Blind{} is selected",
                     "{C:inactive}(Must have room){}"
                 } }
             },
 
             j_artb_clownfish = {
                 name = 'Clownfish',
-                text = { {
-                    "{X:mult,C:white}X#2#{} Mult",
-                    "when round ends",
-                    "dies if no cards",
-                    "were sold this round",
-                    "{C:inactive}(Currently: #1#){}"
-                } }
+                text = { 
+                    {"{X:mult,C:white}X#1#{} Mult"},
+                    {"Dies if no cards were",
+                    "{C:money}sold{} before end of round",
+                    "{C:inactive}(Currently: {C:red}hungry!{C:inactive}){}"}
+                }
+            },
+
+            j_artb_clownfish_fed = {
+                name = 'Clownfish',
+                text = { 
+                    {"{X:mult,C:white}X#1#{} Mult"},
+                    {"Dies if no cards were",
+                    "{C:money}sold{} before end of round",
+                    "{C:inactive}(Currently: fed){}"}
+                }
             },
 
             j_artb_energy_drink = {
                 name = 'Energy Drink',
-                text = { {
-                    "Retriggers {C:attention}Joker{}",
-                    "to the right",
-                    "Consumed after",
-                    "{C:attention}#2#{} round(s)"
-                } }
+                text = { 
+                    {
+                        "Retriggers {C:attention}Joker{}",
+                        "to the right"
+                    },
+                    {
+                        "Consumed after",
+                        "{C:attention}#2#{} round(s)"
+                    }
+                }
             },
 
             j_artb_lego_joker = {
@@ -303,58 +316,62 @@ return {
             c_artb_joker_collectable = {
                 name = 'Joker Collectable',
                 text = {
-                    "{C:attention}+1 consumable slot{} when held",
-                    "If you already have",
+                    {"{C:attention}+1 consumable slot{}"},
+                    {"If you already have",
                     "a {C:attention}Joker Collectable{}",
-                    "destroys this and gives",
-                    "the other one {C:money}+#1#{} sell value"
+                    "destroy this and give",
+                    "the other {C:money}+#1#{} sell value"}
                 }
             },
 
             c_artb_limited_edition_collectable = {
                 name = 'Limited Edition',
                 text = {
-                    "{C:attention}+#2# consumable slots{} when held",
-                    "If you already have",
-                    "a {C:attention}Limited Edition{}",
-                    "destroys this and gives",
-                    "the other one {C:money}+#1#{} sell value",
-                    "and {C:attention}+1 consumable slot{}"
+                    {"{C:attention}+#2# consumable slots{}"},
+                    {"If you already have",
+                    "a {C:attention}Limited Edition{},",
+                    "destroy this and give",
+                    "the other {C:money}+#1#{} sell value",
+                    "and {C:attention}+1 consumable slot{}"}
                 }
             },
             c_artb_mod_collectable = {
                 name = 'Modifier Collectable',
                 text = {
-                    "Applies {C:attention}#1#{} to",
-                    "{C:attention}1{} selected playing card",
+                    {"Contains \"{C:attention}#1#{}\""},
+                    {"{C:attention}Use{} to apply it to",
+                    "a selected {C:attention}playing card"}
                 }
             },
 
             c_artb_mod_collectable_empty = {
                 name = 'Modifier Collectable',
                 text = {
-                    "Applies {C:attention}???{} to",
-                    "{C:attention}1{} selected playing card",
+                    "Contains an {C:attention}Enhancement{},",
+                    "{C:attention}Seal{}, or {C:dark_edition}Edition",
+                    "{s:0.2} {}",
+                    "{C:attention}Use{} to apply it to",
+                    "a selected {C:attention}playing card"
                 }
             },
             c_artb_gros_michel_collectable = {
                 name = 'Gros Michel Collectable',
                 text = {
-                    "{C:mult}+#1#{} Mult",
-                    "If you already have",
-                    "a {C:attention}Gros Michel Collectable{}",
-                    "destroys this and gives",
-                    "the other one {C:mult}+#2#{} Mult"
+                    {"{C:mult}+#1#{} Mult"},
+                    {"If you already have",
+                    "a {C:gros}Gros Michel Collectable{},",
+                    "destroy this and give",
+                    "the other {C:mult}+#2#{} Mult"}
                 }
             },
             c_artb_cavendish_collectable = {
                 name = 'Cavendish Collectable',
                 text = {
-                    "{X:mult,C:white}X#1#{} Mult",
-                    "If you already have",
-                    "a {C:attention}Cavendish Collectable{}",
-                    "destroys this and gives",
-                    "the other one {X:mult,C:white}X#2#{} Mult"
+                    {"{X:mult,C:white}X#1#{} Mult"},
+                    {"If you already have",
+                    "a {C:cavendish}Cavendish Collectable{},",
+                    "destroy this and give",
+                    "the other {X:mult,C:white}X#2#{} Mult"}
                 }
             },
 
@@ -388,7 +405,9 @@ return {
             c_artb_art_glitter = {
                 name = 'Glitter',
                 text = {
-                    'Add a random edition to',
+                    'Add one of {C:dark_edition}Foil{},',
+                    '{C:dark_edition}Holographic{}, {C:dark_edition}Glitter{}',
+                    'or {C:dark_edition}Fluorescent{} to',
                     '{C:attention}1{} random card in hand'
                 }
             },
@@ -398,28 +417,28 @@ return {
                     'Select {C:attention}2{} cards,',
                     'they copy each others',
                     '{C:attention}enhancements{}, {C:attention}seals{} and {C:attention}editions{}',
-                    '{C:inactive}ignores ones already on the card{}'
+                    '{C:inactive}(if they do not have one already){}'
                 }
             },
 
             c_artb_art_auction = {
                 name = 'Auction',
                 text = {
-                    'Destroys {C:attention}1{} selected card,',
-                    'gives {C:money}$#3#{} for its {C:attention}enhancement{},',
-                    '{C:money}$#2#{} for its {C:attention}seal{},',
-                    'and {C:money}$#1#{} for its {C:attention}edition{}'
+                    'Destroys {C:attention}1{} selected card',
+                    'Gives {C:money}$#4#{} for the card,',
+                    'gives {C:money}$#3#{} for the {C:attention}enhancement{},',
+                    '{C:money}$#2#{} for the {C:attention}seal{},',
+                    'and {C:money}$#1#{} for the {C:attention}edition{}'
                 }
             },
 
             c_artb_art_appraisal = {
                 name = 'Appraisal',
                 text = {
-                    'Gives the total sell',
+                    'Gives {C:attention}twice{} the total sell',
                     'value of all held consumables',
-                    '{C:inactive}(max of {C:money}$30{}){}',
-                    'and creates a {C:attention}Collectable Joker{}',
-                    '{C:inactive}(Currently: {C:money}$#2#{}){}'
+                    '{C:inactive}(currently {C:money}$#1#{}{C:inactive}){}',
+                    '{C:inactive}(max of {C:money}$30{}{C:inactive})',
                 }
             },
 
@@ -436,8 +455,8 @@ return {
                 name = 'Thread',
                 text = {
                     'Add a Button Seal',
-                    'to {C:attention}1{} selected',
-                    'card in your hand'
+                    'to up to {C:attention}2{} selected',
+                    'cards in your hand'
                 }
             },
 
@@ -453,19 +472,20 @@ return {
                 name = 'Carving',
                 text = {
                     "Enchances {C:attention}#1#{}",
-                    "selected playing card to",
-                    "{C:attention}Wood Card{}",
+                    "selected cards to",
+                    "{C:attention}Wood Cards{}",
                 }
             },
 
             c_artb_art_scissors = {
                 name = 'Scissors',
                 text = {
-                    'Destroys {C:attention}1{} selected',
-                    'playing card and',
-                    'creates Collectables of its',
+                    {'Destroys {C:attention}1{} selected',
+                    'playing card'},
+                    {'Creates {C:attention}Collectables{} of its',
                     '{C:attention}Edition{}, {C:attention}Seal{} and {C:attention}Enhancement{}',
-                    '{C:inactive}(Must have room){}'
+                    'if it has any',
+                    '{C:inactive}(Must have room)'}
                 }
             },
 
@@ -490,10 +510,12 @@ return {
             c_artb_art_still_life = {
                 name = 'Still Life',
                 text = {
-                    "creates a",
-                    "{C:attention}Gros Michel Collectable{}",
-                    "{C:inactive}(Must have room, or another{}",
-                    "{C:inactive}Gros Michel Collectable already){}"
+                    {"{C:green}#1# in #2#{} chance to",
+                    "create a {C:gros}Gros Michel Collectable",
+                    "{C:inactive}(Must have room)"},
+                    {"If you {C:attention}already own one{},",
+                    "this is {C:attention}guaranteed{} and",
+                    "room is not needed",}
                 }
             }
         },
@@ -519,42 +541,45 @@ return {
             },
         },
         Enhanced = {
-            m_artb_pinata = {
-                name = 'Pinata Card',
-                text = {
-                    'When this card is {C:attention}destroyed{},',
-                    'gain {C:money}$#1#{}',
-                    'and a random {C:attention}tag{}'
-                }
-            },
-            m_artb_stained = {
-                name = 'Stained Card',
-                text = {
-                    "No rank or suit,",
-                    "When this card is {C:attention}discarded{},",
-                    "{C:green}#1# in #2#{} chance",
-                    "to create an {C:attention}Art card{},",
-                    "{C:green}#3# in #4#{} chance",
-                    "to create a {C:attention}Creative tag{}",
-                }
-            },
-            m_artb_wood = {
-                name = 'Wood Card',
-                text = {
-                    "When this card",
-                    "is held in hand,",
-                    "scored cards gain",
-                    "permanent {C:chips}+#1#{} Chips"
-                }
-            },
+           m_artb_pinata = {
+           name = 'Pinata Card',
+           text = {
+            '{C:green}#2# in #3#{} chance to',
+            '{C:red}explode{} when played',
+            "{s:0.2} {}",
+            'When {C:attention}destroyed{},',
+            'gain {C:money}$#1#{} and',
+            'a random {C:attention}tag{}'
+            }
+          },
+         m_artb_stained = {
+        name = 'Stained Card',
+        text = {
+          "Does not score",
+          "{s:0.2} {}",
+          "When {C:attention}discarded{}, {C:green}#1# in #2#{} chance",
+          "to create a {C:attention}Modifier Collectable{}",
+          }
+        },
+        m_artb_wood = {
+           name = 'Wood Card',
+           text = {
+            "While held in hand,",
+            "scored cards gain",
+            "{C:chips}+#1#{} chips permanently"
+            }
+        },
 
             m_artb_marble = {
                 name = 'Marble Card',
                 text = {
-                    "No rank or suit,",
-                    "Gives {X:chips,C:white}X2{} Chips",
-                    "after being played {C:attention}4{} times",
-                    "{C:inactive}(#2#/4){}"
+                    "No rank or suit",
+                    "{s:0.2} {}",
+                    "{C:attention}Sculpted{} after being",
+                    "played {C:attention}4{} times {C:inactive}(#2#/4){}",
+                    "{s:0.2} {}",
+                    "Once {C:attention}sculpted{},",
+                    "gives {X:chips,C:white}X2{} Chips",
                 }
             },
         },
@@ -584,8 +609,9 @@ return {
                 name = 'Used Supplies',
                 text = {
                     "When a card is destroyed,",
-                    'get a {C:dark_edition}Negative{} collectable of its',
-                    '{C:attention}Edition{}, {C:attention}Seal{} and {C:attention}Enhancement{}',
+                    '{C:green}#1# in #2#{} chance for each of its',
+                    '{C:attention}enhancement{}, {C:attention}seal{}, and {C:attention}edition{}',
+                    'to be gained as {C:dark_edition}Negative{} collectables'
                 },
             },
         },
@@ -598,6 +624,11 @@ return {
                     "{C:attention,T:v_artb_pen_holder}#1#{} voucher",
                     "and a random {C:attention}enhancement{},",
                     "{C:attention}seal{} and {C:attention}edition{} Collectable"
+                },
+                unlock = {
+                    "Have a {C:attention}Stained Card",
+                    "create an {C:dark_edition}Edition{}",
+                    "{C:attention}Modifier Collectable"
                 }
             },
 
@@ -605,12 +636,39 @@ return {
                 name = "Box Deck",
                 text = {
                     "Start run with the",
-                    "{C:attention,T:v_artb_booster_stack}#1#{} voucher",
-                    "and a {C:attention,T:c_artb_joker_collectable}#2#{},"
+                    "{C:attention,T:v_ortalab_home_delivery}#1#{} voucher and a",
+                    "{C:attention}Perishable {C:gros,T:c_artb_gros_michel_collectable}#2#{}"
+                },
+                unlock = {
+                    "Use {C:art}Appraisal{} for",
+                    "at least {C:money}$8"
                 }
             },
         },
         Other = {
+            artb_gros_michel_explainer = {
+                name = 'Gros Michel Collectable',
+                text = {
+                    "{C:mult}+15{} Mult",
+                    "{s:0.2} {}",
+                    "If you already have",
+                    "a {C:gros}Gros Michel Collectable{},",
+                    "destroy this and give",
+                    "the other {C:mult}+5{} Mult"
+                }
+            },
+
+            artb_mod_collectable_explain = {
+                name = 'Modifier Collectable',
+                text = {
+                    "Contains an {C:attention}Enhancement{},",
+                    "{C:attention}Seal{}, or {C:dark_edition}Edition",
+                    "{s:0.2} {}",
+                    "{C:attention}Use{} to apply it to",
+                    "a selected {C:attention}playing card"
+                }
+            },
+
             artb_ouroboros_seal = {
                 name = 'Ouroboros Seal',
                 text = {

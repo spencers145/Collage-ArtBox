@@ -7,20 +7,20 @@ SMODS.Enhancement({
   replace_base_card = true,
   config = {
     extra = {
-        n=1,
-        d=3,
-        super_n=1,
-        super_d=10
-      }
+      odds = 2,
+      destroy_odds = 10
+    }
   },
-
+  in_pool = function (self, args)
+    return false
+  end,
   loc_vars = function(self, info_queue, card)
-    info_queue[#info_queue + 1] = G.P_TAGS.tag_artb_creative
-    local n, d = SMODS.get_probability_vars(card, card.ability.extra.n,  card.ability.extra.d, 'stained')
-    local super_n, super_d = SMODS.get_probability_vars(card, card.ability.extra.super_n,  card.ability.extra.super_d, 'stained')
+    info_queue[#info_queue + 1] = {key = 'artb_mod_collectable_explain', set = 'Other'}
+    local n,d = SMODS.get_probability_vars(card, 1, card.ability.extra.odds, 'artb_stained')
     return {
       vars = {
-        n, d, super_n, super_d
+        n,
+        d,
       }
     }
   end,
@@ -28,27 +28,92 @@ SMODS.Enhancement({
   calculate = function(self, card, context)
     if context.discard then
       if context.other_card == card then
-        if SMODS.pseudorandom_probability(card, 'stained', card.ability.extra.n, card.ability.extra.d, 'stained') and #G.consumeables.cards + G.GAME.consumeable_buffer < G.consumeables.config.card_limit then
-          G.GAME.consumeable_buffer=G.GAME.consumeable_buffer+1
-          G.E_MANAGER:add_event(Event({
-            func = function()
-            SMODS.add_card {
-              set = 'art',
-              key_append = 'stained'
+        if SMODS.pseudorandom_probability(card, pseudoseed("artb_stained"), 1, card.ability.extra.odds, 'artb_stained') then
+          if  #G.consumeables.cards + G.GAME.consumeable_buffer < G.consumeables.config.card_limit then
+            return {
+              func = function()
+                G.GAME.consumeable_buffer = G.GAME.consumeable_buffer + 1
+                --G.E_MANAGER:add_event(Event({
+                  --func = (function()
+                    G.E_MANAGER:add_event(Event({
+                      func = function()
+                        local chance = pseudorandom(pseudoseed("artb_stained_choice"))
+                          if chance < 1/6 then
+                            G.E_MANAGER:add_event(Event({
+                              func = function()
+                                unlock_card(G.P_CENTERS.b_artb_handmade)
+                                local choice = poll_edition('artb_stained_edition', nil, true, true)
+                                --print("got edition")
+                                ArtBox.create_collectable(choice)
+                                G.GAME.consumeable_buffer = G.GAME.consumeable_buffer - 1
+                                return true
+                              end
+                            }))
+                          elseif chance < 1/2 then
+                            G.E_MANAGER:add_event(Event({
+                              func = function()
+                                local pool = get_current_pool('Seal')
+                                local final_pool = {}
+                                for k, value in pairs(pool) do
+                                  if value ~= "UNAVAILABLE" and value ~= "vis_wooden" and value ~= "vis_mitosis" and value ~= "artb_ouroboros" then final_pool[k] = value end
+                                end
+                                --print(final_pool)
+
+                                local choice = pseudorandom_element(final_pool, pseudoseed('artb_stained_seal'))
+                                --print("got seal")
+                                ArtBox.create_collectable(choice)
+                                G.GAME.consumeable_buffer = G.GAME.consumeable_buffer - 1
+                                return true
+                              end
+                            }))
+                          else
+                            G.E_MANAGER:add_event(Event({
+                              func = function()
+                                local pool = get_current_pool('Enhanced')
+                                local final_pool = {}
+                                for k, value in pairs(pool) do
+                                  if value ~= "UNAVAILABLE" then final_pool[k] = value end
+                                end
+                                --print(final_pool)
+
+                                local choice = pseudorandom_element(final_pool, pseudoseed('artb_stained_enhancement'))
+                                --print("got enhancement")
+                                ArtBox.create_collectable(choice)
+                                G.GAME.consumeable_buffer = G.GAME.consumeable_buffer - 1
+                                return true
+                              end
+                            }))
+                          end
+                        --[[SMODS.add_card {
+                          set = 'art',
+                          key_append = 'stained'
+                        }
+                        G.GAME.consumeable_buffer = 0]]
+                        return true
+                      end
+                    }))
+                    SMODS.calculate_effect({ message = localize('artb_plus_art'), colour = G.C.SET.DIVINE },
+                      context.blueprint_card or card)
+                    return true
+                  --end)
+                --}))
+              end
             }
-            G.GAME.consumeable_buffer = 0
-            return true
-            end
-          }))
-          SMODS.calculate_effect({extra = { message = localize('artb_plus_art')}}, card)
+          end
+          
+        elseif SMODS.pseudorandom_probability(card, pseudoseed("artb_stained_destroy"), 1, card.ability.extra.odds, 'artb_stained_destroy') then
+          -- maybe add back later
+          --[[return {
+            remove = true
+          }]]
         end
-        if SMODS.pseudorandom_probability(card, 'stained', card.ability.extra.super_n, card.ability.extra.super_d, 'stained') then
+        --[[if pseudorandom("stained") < G.GAME.probabilities.normal / card.ability.extra.super_odds then
           local tag = Tag("tag_artb_creative")
           add_tag(tag)
           return {
             message = localize('artb_plus_tag')
           }
-        end
+        end]]
       end
     end
   end,

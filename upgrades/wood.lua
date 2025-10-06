@@ -5,10 +5,13 @@ SMODS.Enhancement({
     discovered = true,
     config = {
     extra = {
-      chips=3
+      chips = 3
     }
   },
 
+  in_pool = function (self, args)
+    return false
+  end,
   loc_vars = function(self, info_queue, card)
     return {
       vars = {

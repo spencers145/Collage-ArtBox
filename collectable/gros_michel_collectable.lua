@@ -2,13 +2,13 @@ SMODS.Consumable({
     key = 'gros_michel_collectable',
     set = 'collectable',
     atlas = 'collectable_atlas',
-    pos = {x=3, y=12},
-    soul_pos = {x=3, y=13},
+    pos = {x=4, y=14},
+    soul_pos = {x=4, y=15},
     discovered = true,
     config = {
        extra = { 
-        mult = 4,
-        mult_add = 4,
+        mult = 15,
+        mult_add = 5,
       } 
       },
     keep_on_use = function(self, card)

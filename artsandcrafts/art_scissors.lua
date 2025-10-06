@@ -8,9 +8,9 @@ SMODS.Consumable({
 		max_highlighted = 1
 	},
 	pos = { x = 1, y = 0 },
-	cost = 4,
+	cost = 3,
 	unlocked = true,
-	discovered = true,
+	discovered = false,
 
 	use = function(self, card, area)
 		local selected = G.hand.highlighted[1]
@@ -56,6 +56,6 @@ SMODS.Consumable({
 	end,
 
 	can_use = function(self, card, area)
-		return next(G.hand.highlighted) and #G.hand.highlighted <= card.ability.consumeable.max_highlighted and not SMODS.is_eternal(G.hand.highlighted[1])
+		return next(G.hand.highlighted) and #G.hand.highlighted <= card.ability.consumeable.max_highlighted
 	end
 })

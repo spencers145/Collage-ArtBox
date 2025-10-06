@@ -4,9 +4,14 @@ ArtBox_config = ArtBox.config
 --#region Colors
 
 ArtBox.C = {
-    ARTB_PRIMARY = HEX('be5e6e'),
+    ARTB_PRIMARY = HEX('BE5E6E'),
     ARTB_SECONDARY = HEX('86d4c9'),
 }
+
+G.ARGS.LOC_COLOURS['art'] = HEX('D691A0')
+G.ARGS.LOC_COLOURS['gros'] = HEX('E3C355')
+G.ARGS.LOC_COLOURS['cavendish'] = HEX('F2DD42')
+
 
 --#endregion
 
@@ -252,8 +257,8 @@ SMODS.ConsumableType({
             text = { 'Find this card in an unseeded', 'run to find out what it does' }
         }
     },
-    collection_rows = { 4, 4, 4 },
-    shop_rate = 0,
+    collection_rows = { 3, 3 },
+    shop_rate = 0.01,
     default = 'c_artb_joker_collectable'
 })
 
@@ -271,8 +276,10 @@ ArtBox.Collectables = {
     ['gb_fortune'] = { atlas = 'artb_collectable_atlas', pos = { x = 0, y = 8 }, soul_pos = { x = 0, y = 9 } },
     ['gb_infinite'] = { atlas = 'artb_collectable_atlas', pos = { x = 1, y = 8 }, soul_pos = { x = 1, y = 9 } },
 
-    ['aij_smiley'] = { atlas = 'artb_collectable_atlas_2', pos = { x = 6, y = 0 }, soul_pos = { x = 6, y = 1 }},
-    ['aij_melted'] = { atlas = 'artb_collectable_atlas_2', pos = { x = 7, y = 0 }, soul_pos = { x = 7, y = 1 }},
+    ['vis_mitosis'] = { atlas = 'artb_collectable_atlas', pos = { x = 6, y = 12 }, soul_pos = { x = 6, y = 13 } },
+    ['vis_bronze'] = { atlas = 'artb_collectable_atlas', pos = { x = 4, y = 12 }, soul_pos = { x = 4, y = 13 } },
+    ['vis_wooden'] = { atlas = 'artb_collectable_atlas', pos = { x = 5, y = 12 }, soul_pos = { x = 5, y = 13 } },
+    ['vis_indigo'] = { atlas = 'artb_collectable_atlas', pos = { x = 7, y = 12 }, soul_pos = { x = 7, y = 13 } },
 
     --Enhancements
     ['m_bonus'] = { atlas = 'artb_collectable_atlas', pos = { x = 1, y = 0 }, soul_pos = { x = 1, y = 1 } },
@@ -313,19 +320,14 @@ ArtBox.Collectables = {
     ['m_ortalab_iou'] = { atlas = 'artb_collectable_atlas', pos = { x = 3, y = 10 }, soul_pos = { x = 3, y = 11 }},
     ['m_ortalab_ore'] = { atlas = 'artb_collectable_atlas', pos = { x = 4, y = 10 }, soul_pos = { x = 4, y = 11 }},
 
-    ['m_bunc_cracker'] = { atlas = 'artb_collectable_atlas', pos = { x = 9, y = 10 }, soul_pos = { x = 9, y = 11 }},
-    ['m_bunc_copper'] = { atlas = 'artb_collectable_atlas', pos = { x = 0, y = 12 }, soul_pos = { x = 0, y = 13 }},
+    ['m_vis_brick'] = { atlas = 'artb_collectable_atlas', pos = { x = 1, y = 12 }, soul_pos = { x = 1, y = 13 } },
+    ['m_vis_table_cloth'] = { atlas = 'artb_collectable_atlas', pos = { x = 3, y = 12 }, soul_pos = { x = 3, y = 13 } },
+    ['m_vis_notebook'] = { atlas = 'artb_collectable_atlas', pos = { x = 0, y = 12 }, soul_pos = { x = 0, y = 13 } },
+    ['m_vis_plastic'] = { atlas = 'artb_collectable_atlas', pos = { x = 2, y = 12 }, soul_pos = { x = 2, y = 13 } },
 
-    ['m_aij_fervent'] = { atlas = 'artb_collectable_atlas_2', pos = { x = 0, y = 0 }, soul_pos = { x = 0, y = 1 }},
-    ['m_aij_charged'] = { atlas = 'artb_collectable_atlas_2', pos = { x = 1, y = 0 }, soul_pos = { x = 1, y = 1 }},
-    ['m_aij_ice'] = { atlas = 'artb_collectable_atlas_2', pos = { x = 2, y = 0 }, soul_pos = { x = 2, y = 1 }},
-    ['m_aij_wood'] = { atlas = 'artb_collectable_atlas_2', pos = { x = 3, y = 0 }, soul_pos = { x = 3, y = 1 }},
-    ['m_aij_canvas'] = { atlas = 'artb_collectable_atlas_2', pos = { x = 4, y = 0 }, soul_pos = { x = 4, y = 1 }},
-    ['m_aij_simulated'] = { atlas = 'artb_collectable_atlas_2', pos = { x = 5, y = 0 }, soul_pos = { x = 5, y = 1 }},
+    ['m_bunc_copper'] = { atlas = 'artb_collectable_atlas', pos = { x = 0, y = 14 }, soul_pos = { x = 0, y = 15 } },
+    ['m_bunc_cracker'] = { atlas = 'artb_collectable_atlas', pos = { x = 3, y = 14 }, soul_pos = { x = 3, y = 15 } },
 
-    ['m_buf_porcelain'] = { atlas = 'artb_collectable_atlas_2', pos = { x = 2, y = 2 }, soul_pos = { x = 2, y = 3 }},
-    ['m_buf_porcelain_g'] = { atlas = 'artb_collectable_atlas_2', pos = { x = 3, y = 2 }, soul_pos = { x = 3, y = 3 }},
-    
     --Editions
     ['e_polychrome'] = { atlas = 'artb_collectable_atlas', pos = { x = 3, y = 2 }, soul_pos = { x = 3, y = 3 }, shader = 'polychrome', },
     ['e_foil'] = { atlas = 'artb_collectable_atlas', pos = { x = 6, y = 2 }, soul_pos = { x = 3, y = 3 }, shader = 'foil', },
@@ -337,13 +339,9 @@ ArtBox.Collectables = {
     ['e_ortalab_anaglyphic'] = { atlas = 'artb_collectable_atlas', pos = { x = 7, y = 10 }, soul_pos = { x = 7, y = 11 }, shader = 'ortalab_anaglyphic', },
     ['e_ortalab_overexposed'] = { atlas = 'artb_collectable_atlas', pos = { x = 8, y = 10 }, soul_pos = { x = 8, y = 11 }, shader = 'ortalab_overexposed', },
 
-    ['e_bunc_glitter'] = { atlas = 'artb_collectable_atlas', pos = { x = 2, y = 12 }, soul_pos = { x = 2, y = 13 }, shader = 'bunc_glitter', },
-    ['e_bunc_fluorescent'] = { atlas = 'artb_collectable_atlas', pos = { x = 3, y = 12 }, soul_pos = { x = 3, y = 13 }, shader = 'bunc_fluorescent', },
+    ['e_bunc_fluorescent'] = { atlas = 'artb_collectable_atlas', pos = { x = 2, y = 14 }, soul_pos = { x = 2, y = 15 }, shader = 'bunc_fluorescent', },
+    ['e_bunc_glitter'] = { atlas = 'artb_collectable_atlas', pos = { x = 1, y = 14 }, soul_pos = { x = 1, y = 15 }, shader = 'bunc_glitter', },
 
-    ['e_aij_glimmer'] = { atlas = 'artb_collectable_atlas_2', pos = { x = 8, y = 0 }, soul_pos = { x = 8, y = 1 }, shader = 'aij_glimmer',},
-    ['e_aij_silver'] = { atlas = 'artb_collectable_atlas_2', pos = { x = 9, y = 0 }, soul_pos = { x = 9, y = 1 }, shader = 'aij_silver',},
-    ['e_aij_stellar'] = { atlas = 'artb_collectable_atlas_2', pos = { x = 0, y = 2 }, soul_pos = { x = 0, y = 3 }, shader = 'aij_stellar',},
-    ['e_aij_aureate'] = { atlas = 'artb_collectable_atlas_2', pos = { x = 1, y = 2 }, soul_pos = { x = 1, y = 3 }, shader = 'aij_aureate',},
 }
 
 function ArtBox.add_collectible(key, args)
@@ -424,7 +422,7 @@ SMODS.ConsumableType({
             text = { 'Find this card in an unseeded', 'run to find out what it does' }
         }
     },
-    collection_rows = { 4, 4, 4 },
+    collection_rows = { 4, 4 },
     shop_rate = 0,
     default = 'c_artb_art_paper'
 })

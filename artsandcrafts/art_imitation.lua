@@ -8,9 +8,9 @@ SMODS.Consumable({
 		max_highlighted = 1
 	},
 	pos = { x = 5, y = 1 },
-	cost = 4,
+	cost = 3,
 	unlocked = true,
-	discovered = true,
+	discovered = false,
 
 	use = function(self, card, area)
 

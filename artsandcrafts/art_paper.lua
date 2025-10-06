@@ -5,9 +5,9 @@ SMODS.Consumable ({
 	set = 'art',
 	name = 'Paper',
 	pos = { x = 2, y = 0 },
-	cost = 4,
+	cost = 3,
 	unlocked = true,
-	discovered = true,
+	discovered = false,
 	config = {mod_conv = "m_artb_pinata", max_highlighted = 2},
     effect = 'Enhance',
     loc_vars = function(self, info_queue)

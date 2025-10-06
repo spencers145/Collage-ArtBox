@@ -9,6 +9,8 @@
       },
     },
 
+    unlocked = false,
+
     loc_vars = function(self, info_queue)
       return {
         vars = {
@@ -41,24 +43,36 @@
   }
 
   SMODS.Back {
-    key = 'box',
-    atlas = 'enhancers_atlas',
-    pos = { x = 4, y = 0 },
-    config = {
-      vouchers = {
-        'v_artb_booster_stack'
+      key = 'box',
+      atlas = 'enhancers_atlas',
+      pos = { x = 4, y = 0 },
+      config = {
+        vouchers = {
+          'v_ortalab_home_delivery'
+        },
       },
-      consumables = {
-        'c_artb_joker_collectable'
-      }
-    },
+      unlocked = false,
 
-    loc_vars = function(self, info_queue)
-      return {
-        vars = {
-          localize { type = 'name_text', key = 'v_artb_booster_stack', set = 'Voucher' },
-          localize { type = 'name_text', key = 'c_artb_joker_collectable', set = 'collectable' },
+      loc_vars = function(self, info_queue)
+        return {
+          vars = {
+            localize { type = 'name_text', key = 'v_ortalab_home_delivery', set = 'Voucher' },
+            localize { type = 'name_text', key = 'c_artb_gros_michel_collectable', set = 'collectable' },
+          }
         }
-      }
-    end
+      end,
+
+      apply = function (self, back)
+        G.E_MANAGER:add_event(Event({
+            trigger = 'after',
+            delay = 0.4,
+            func = function()
+                if G.consumeables.config.card_limit > #G.consumeables.cards then
+                    local added_card = SMODS.add_card({key = 'c_artb_gros_michel_collectable'})
+                    added_card:add_sticker('perishable', true)
+                end
+                return true
+            end
+        }))
+      end
   }

@@ -5,9 +5,9 @@ SMODS.Consumable {
 	set = 'art',
 	name = 'Plastic',
 	pos = { x = 2, y = 1 },
-	cost = 4,
+	cost = 3,
 	unlocked = true,
-	discovered = true,
+	discovered = false,
 	config ={},
     loc_vars = function(self, info_queue, card)
 		info_queue[#info_queue + 1] = G.P_SEALS['artb_brick']

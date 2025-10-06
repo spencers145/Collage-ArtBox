@@ -9,9 +9,9 @@ SMODS.Consumable ({
     max_highlighted = 2
     },
 	pos = { x = 0, y = 0 },
-	cost = 4,
+	cost = 3,
 	unlocked = true,
-	discovered = true,
+	discovered = false,
 
     use = function(self, card, area)
       local left = G.hand.highlighted[1]
@@ -21,36 +21,44 @@ SMODS.Consumable ({
             local percent = 1.15 - (i-0.999)/(#G.hand.highlighted-0.998)*0.3
             G.E_MANAGER:add_event(Event({trigger = 'after',delay = 0.15,func = function() G.hand.highlighted[i]:flip();play_sound('card1', percent);G.hand.highlighted[i]:juice_up(0.3, 0.3);return true end }))
         end
-
+	local total = 0
 	  G.E_MANAGER:add_event(Event({trigger = 'after', delay = 0.15, func = function()
 	  if(left.edition and not right.edition)then
-			G.hand.highlighted[2].edition=G.hand.highlighted[1].edition
+			total = total + 1
+			G.hand.highlighted[2]:set_edition(G.hand.highlighted[1].edition, true)
 	  else
 		if(right.edition and not left.edition)then
-			G.hand.highlighted[1].edition=G.hand.highlighted[2].edition
+			total = total + 1
+			G.hand.highlighted[1]:set_edition(G.hand.highlighted[2].edition, true)
 		end
 	  end
 
 	  if(left.seal and not right.seal)then
-			G.hand.highlighted[2].seal=G.hand.highlighted[1].seal
-			G.hand.highlighted[2].ability.seal=G.hand.highlighted[1].ability.seal
+			total = total + 1
+			G.hand.highlighted[2]:set_seal(G.hand.highlighted[1].seal)
 	  else
 		if(right.seal and not left.seal)then
-			G.hand.highlighted[1].seal=G.hand.highlighted[2].seal
-			G.hand.highlighted[1].ability.seal=G.hand.highlighted[2].ability.seal
+			total = total + 1
+			G.hand.highlighted[1]:set_seal(G.hand.highlighted[2].seal)
 		end
 	  end
 
 	  if(left.config.center ~= G.P_CENTERS.c_base and  right.config.center == G.P_CENTERS.c_base)then
+			total = total + 1
 			G.hand.highlighted[2]:set_ability(G.hand.highlighted[1].config.center.key)
 			G.hand.highlighted[2].ability.extra=G.hand.highlighted[1].ability.extra
 	  else
 		if(right.config.center ~= G.P_CENTERS.c_base and  left.config.center == G.P_CENTERS.c_base)then
+			total = total + 1
 			G.hand.highlighted[1]:set_ability(G.hand.highlighted[2].config.center.key)
 			G.hand.highlighted[1].ability.extra=G.hand.highlighted[2].ability.extra
 		end
 	  end
 	  return true end }))
+
+	  if total == 3 then
+		unlock_card(G.P_CENTERS.b_femtoLabsCollection_hue)
+	  end
 
 	   for i=1, #G.hand.highlighted do
             local percent = 0.85 + (i-0.999)/(#G.hand.highlighted-0.998)*0.3

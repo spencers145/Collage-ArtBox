@@ -2,16 +2,16 @@ SMODS.Joker {
     key = "mitosis",
     config = {
       extra = {
-        mult=4,
+        mult = 5,
       }
     },
-    rarity = 2,
+    rarity = 1,
     pos = { x = 4, y = 2},
     atlas = 'joker_atlas',
-    cost = 7,
+    cost = 5,
     unlocked = true,
-    discovered = true,
-    blueprint_compat = true,
+    discovered = false,
+    blueprint_compat = false,
     eternal_compat = false,
     perishable_compat = true,
 

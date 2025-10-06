@@ -2,13 +2,13 @@ SMODS.Consumable({
     key = 'cavendish_collectable',
     set = 'collectable',
     atlas = 'collectable_atlas',
-    pos = {x=4, y=12},
-    soul_pos = {x=4, y=13},
+    pos = {x=5, y=14},
+    soul_pos = {x=5, y=15},
     discovered = true,
     config = {
        extra = { 
-        xmult = 2,
-        xmult_add = 1,
+        xmult = 1.5,
+        xmult_add = 0.5,
       } 
       },
     keep_on_use = function(self, card)

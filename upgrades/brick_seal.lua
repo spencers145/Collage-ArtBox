@@ -1,7 +1,7 @@
 SMODS.Seal({
   key = "brick",
   badge_colour = HEX("cf3e36"),
-  discovered = true,
+  discovered = false,
   config = {
     mult_mod = 1,
   },
