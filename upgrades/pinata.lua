@@ -5,7 +5,7 @@ SMODS.Enhancement({
     discovered = true,
     config = {
         extra = {
-        money=10,
+        money=8,
         odds=3,
         exploded=true,
       }
