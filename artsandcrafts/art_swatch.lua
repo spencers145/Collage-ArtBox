@@ -14,11 +14,6 @@ SMODS.Consumable ({
 		return true
 	end,
     loc_vars = function(self, info_queue, card)
-    return {
-      vars = {
-        G.GAME.probabilities.normal,
-      }
-    }
     end,
 
     use = function(self, card, area)
