@@ -13,6 +13,9 @@ SMODS.Enhancement({
       progress = 0
     }
   },
+  in_pool = function (self, args)
+    return false
+  end,
 
   loc_vars = function(self, info_queue, card)
     return {

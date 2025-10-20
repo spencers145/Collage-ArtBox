@@ -3,6 +3,7 @@ SMODS.Joker {
   rarity = 2,
   pos = { x = 4, y = 1 },
   atlas = 'joker_atlas',
+  config = {extra = {gave_seal = false}},
   cost = 6,
   unlocked = true,
   discovered = false,
@@ -15,8 +16,9 @@ SMODS.Joker {
   end,
 
   add_to_deck = function(self, card)
-    if #G.consumeables.cards + G.GAME.consumeable_buffer < G.consumeables.config.card_limit then
+    if not card.ability.extra.gave_seal and #G.consumeables.cards + G.GAME.consumeable_buffer < G.consumeables.config.card_limit then
       G.GAME.consumeable_buffer = G.GAME.consumeable_buffer + 1
+      card.ability.extra.gave_seal = true
       G.E_MANAGER:add_event(Event({
         func = function()
           ArtBox.create_collectable('artb_brick')

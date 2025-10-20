@@ -1,10 +1,10 @@
 SMODS.PokerHand {
   key = 'null',
   visible = false,
-  chips = 40,
-  mult = 2,
-  l_chips = 20,
-  l_mult = 1,
+  chips = 50,
+  mult = 4,
+  l_chips = 25,
+  l_mult = 2,
   example = {
     { "S_A", true, enhancement = "m_stone" },
     { "S_A", true, enhancement = "m_stone" },

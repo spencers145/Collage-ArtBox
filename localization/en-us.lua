@@ -53,9 +53,9 @@ return {
             j_artb_mitosis = {
                 name = 'Mitosis',
                 text = {
-                    "{C:mult}+#1#{} Mult",
-                    "When {C:attention}blind{} is selected,",
-                    "creates a copy of this Joker",
+                    {"{C:mult}+#1#{} Mult"},
+                    {"When {C:attention}blind{} is selected,",
+                    "creates a copy of this Joker"},
                 }
             },
 
@@ -73,12 +73,12 @@ return {
                 text = {
                     {
                         "Played cards with",
-                        "{C:clubs}Club{} suit give",
+                        "{C:clubs}♣Club{} suit give",
                         "{C:mult}+#2#{} Mult when scored",
                     },
                     {
                         "Played cards with",
-                        "{C:spades}Spade{} suit give",
+                        "{C:spades}♠Spade{} suit give",
                         "{C:chips}+#1#{} Chips when scored",
                     }
                 }
@@ -290,12 +290,12 @@ return {
                 name = 'Heist',
                 text = {{
                     "When {C:attention}Blind{} is selected,",
-                    "steals {C:attention}sell value{} of",
+                    "steals the {C:attention}sell value{} of",
                     "the Joker to the right"
                 },
                 {
-                    "gives Mult equal to three",
-                    "times this Jokers {C:attention}sell value{}",
+                    "Gives {C:mult}Mult{} equal to three",
+                    "times this Joker's {C:attention}sell value{}",
                     "{C:inactive}(Currently: {C:mult}+#1#{} {C:inactive}Mult)"
                 }}
             },

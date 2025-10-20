@@ -38,7 +38,7 @@ SMODS.Enhancement({
                     G.E_MANAGER:add_event(Event({
                       func = function()
                         local chance = pseudorandom(pseudoseed("artb_stained_choice"))
-                          if chance < 1/6 then
+                          if chance < 1/8 then
                             G.E_MANAGER:add_event(Event({
                               func = function()
                                 unlock_card(G.P_CENTERS.b_artb_handmade)
