@@ -59,21 +59,23 @@ SMODS.Consumable({
 			end
 		end
 
-    if card.ability.extra.original==true then
-      G.E_MANAGER:add_event(Event({
-      func = function()
-        G.consumeables.config.card_limit = G.consumeables.config.card_limit - card.ability.extra.slot
-        return true
+    if card.ability.extra then
+      if card.ability.extra.original==true then
+        local originalslots = card.ability.extra.slot
+        G.E_MANAGER:add_event(Event({
+        func = function()
+          G.consumeables.config.card_limit = G.consumeables.config.card_limit - originalslots
+          return true
+        end
+      }))
+      else
+        G.E_MANAGER:add_event(Event({
+        func = function()
+          G.consumeables.config.card_limit = G.consumeables.config.card_limit - 1
+          return true
+        end
+      }))
       end
-    }))
-    else
-      G.E_MANAGER:add_event(Event({
-      func = function()
-        G.consumeables.config.card_limit = G.consumeables.config.card_limit - 1
-        return true
-      end
-    }))
     end
-    
   end
 })

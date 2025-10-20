@@ -7,13 +7,13 @@ SMODS.Consumable({
     discovered = false,
     config = {
        extra = { 
-        added_value = 5,
+        added_value = 4,
       } 
       },
     keep_on_use = function(self, card)
         return false
     end,
-    cost = 10,
+    cost = 8,
     can_use = function(self, card)
 		return false
 	end,
