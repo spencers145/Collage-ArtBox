@@ -4,7 +4,7 @@ SMODS.Joker {
       mod_conv = "c_artb_joker_collectable",
       extra = {
         n=1,
-        d=3
+        d=2
       }
     },
     rarity = 1,
@@ -19,10 +19,11 @@ SMODS.Joker {
 
     loc_vars = function(self, info_queue, card)
       info_queue[#info_queue + 1] = G.P_CENTERS[self.config.mod_conv]
+      local n,d = SMODS.get_probability_vars(card, card.ability.extra.n, card.ability.extra.d, 'clawmachine')
         return {
       vars = {
-        card.ability.extra.n*G.GAME.probabilities.normal,
-        card.ability.extra.d,
+        n,
+        d,
         card.ability.extra.secret_odds,
       }
     }
@@ -30,7 +31,7 @@ SMODS.Joker {
 
     calculate = function(self, card, context)
         if context.setting_blind then
-            if pseudorandom("clawmachine") < G.GAME.probabilities.normal / card.ability.extra.d then 
+            if SMODS.pseudorandom_probability(card, pseudorandom("clawmachine"), card.ability.extra.n, card.ability.extra.d, 'clawmachine') then 
 
                 if pseudorandom("clawmachine") < 0.04 then
                     SMODS.calculate_effect({message = localize('artb_wow'), colour = G.C.attention}, card)
